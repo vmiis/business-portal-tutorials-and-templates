@@ -1,0 +1,29 @@
+<section>
+      VmInclude:__PARTS__/grid/grid.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__PARTS__/grid/grid.js
+        VmInclude:__PARTS__/style/ease-in-out.js
+        //-------------------------------------
+		$('#new__ID').hide();
+		$('#save__ID').hide();
+		//-------------------------------------
+        _fields="_Form,Name,Email,Subject,Message";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'xxx':
+                	break;
+            }
+        }
+        //-------------------------------------
+        $('#D__ID').on('load',function(){ _set_req(); _request_data(); })
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__PARTS__/grid/grid.css
+</style>
