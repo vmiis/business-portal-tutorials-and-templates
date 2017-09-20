@@ -1,0 +1,79 @@
+<a id=back__ID onclick="$vm.back({div:'__ID'});" class="w3-bar-item w3-button"><i class="fa fa-arrow-left"></i> Back</a>
+<script>$('#back__ID').css('top',$vm.header_height+'px')</script><style>#back__ID{position:fixed;}</style>
+
+<!-- Container (Contact Section) -->
+<div id="contact" class="container-fluid bg-grey">
+  <h2 class="text-center">CONTACT</h2>
+  <div class="row">
+    <div class="col-sm-5">
+      <p>Contact us and we'll get back to you within 24 hours.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Chicago, US</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
+    </div>
+    <div class="col-sm-7 slideanim">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required id="Name__ID">
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required id="Email__ID">
+        </div>
+      </div>
+	  <input class="form-control" id="subject" name="subject" placeholder="Subject" type="text" required id="Subject__ID">
+	  <br>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Message" rows="5" id="Message__ID"></textarea><br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+	$('#D__ID').css('height','100%');
+	$('#D__ID').on('load',function(){
+		$VmAPI.request({data:{cmd:'captha'},callback:function(res){
+			$("#captha").attr("src", "data:image/png;base64,"+res.captha);
+		}})
+		$('#submit__ID').show();
+	})
+	$('#submit__ID').on('click',function(){
+		//-------------------------------------
+		var form = document.getElementById('form__ID');
+		for(var i=0; i < form.elements.length; i++){
+      		if(form.elements[i].value === '' && form.elements[i].hasAttribute('required')){
+        		return;
+      		}
+    	}
+		//-------------------------------------
+		var tid=$vm.app_config.modules.contact.table_id;
+		var record={}
+		record.Name=$('#Name__ID').val();
+		record.Email=$('#Email__ID').val();
+		record.Subject=$('#Subject__ID').val();
+		record.Message=$('#Message__ID').val();
+		var dbv={};
+		var req={cmd:"add_record_anonymous_with_captcha",db_pid:tid,data:record,dbv:dbv,captcha:$('#Code__ID').val()};
+		$VmAPI.request({data:req,callback:function(res){
+			if(res.ret=='-1'){
+				alert('The verification code is not correct.');
+				return;
+			}
+			$vm.alert('Thank you for your message!');
+			form.reset();
+			$('#submit__ID').hide();
+		}});
+		//-------------------------------------
+		return false;
+	})
+</script>
+<style>
+	#D__ID{
+		background: rgba(255,255,255,0.9);
+		height:100%;
+		padding-top:30px;
+		overflow: auto;
+	}
+</style>

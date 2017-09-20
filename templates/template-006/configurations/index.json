@@ -1,0 +1,26 @@
+{
+	"library_path":"https://cbs.wappsystem.com/dev/github",
+	"parts_path":"https://vmiis.github.io/parts",
+	"image_path":"https://image.datalinkedin.com",
+	"api_path_development":"https://cbs.wappsystem.com/dev/",
+	"api_path_production":"https://cbs.wappsystem.com/dev/",
+	"modules":
+	{
+		"who":
+		{
+			"url":"/modules/static/who.html"
+		},
+		"what":
+		{
+			"url":"/modules/static/what.html"
+		},
+		"where":
+		{
+			"url":"/modules/static/where.html"
+		},
+		"portal":
+		{
+			"url":"/configurations/bookkeeping.json"
+		}
+	}
+}

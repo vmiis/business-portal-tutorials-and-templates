@@ -1,0 +1,172 @@
+{
+	"name":"Bookkeeping",
+	"url":"/modules/dynamic/panel.html",
+	"parameters":{
+	},
+	"panel":
+	{
+		"columns":
+		[
+			{
+				"sections":
+				[
+					{
+						"name":"Bookkeeping",
+						"modules":
+						[
+							{
+							   "module_id" : "bookkeeping01",
+							   "name" : "Bookkeeping (with export function)",
+							   "table_id" : "20007172",
+							   "url" : "/modules/dynamic/bookkeeping/transaction/bookkeeping_with_basic_toolbar.html",
+							   "counting":"1"
+							},
+							{
+							   "module_id" : "bookkeeping02",
+							   "name" : "Bookkeeping (with period selection)",
+							   "table_id" : "20007172",
+							   "url" : "/modules/dynamic/bookkeeping/transaction/bookkeeping_with_period_toolbar.html"
+							},
+							{
+							   "module_id" : "bookkeeping03",
+							   "name" : "Bookkeeping (with year and month selection)",
+							   "table_id" : "20007172",
+							   "url" : "/modules/dynamic/bookkeeping/transaction/bookkeeping_with_year_month_toolbar.html"
+							},
+							{
+							   "module_id" : "bookkeeping04",
+							   "name" : "Bookkeeping (with year and quarter selection)",
+							   "table_id" : "20007172",
+							   "url" : "/modules/dynamic/bookkeeping/transaction/bookkeeping_with_year_quarter_toolbar.html"
+							}
+						]
+					}
+					,{
+						"name":"BI processing",
+						"modules":
+						[
+							{
+							   "module_id" : "bi_processing",
+							   "name" : "Business intelligence processing",
+							   "table_id" : "20010377",
+							   "url" : "/modules/dynamic/bookkeeping/transaction/income_and_expense_bookkeeping_bi.html",
+							   "counting":"1"
+							},
+							{
+							   "module_id" : "bi_processing_details",
+							   "table_id" : "20010377",
+							   "url" : "/modules/dynamic/bookkeeping/transaction/income_and_expense_bookkeeping_bi_details.html"
+							}
+						]
+					}
+					,{
+						"name":"Setup",
+						"modules":
+						[
+							{
+							   "module_id" : "predefined_item",
+							   "name" : "Predefined transaction items",
+							   "table_id" : "20005380",
+							   "url" : "/modules/dynamic/bookkeeping/transaction/predefined_transaction_item.html",
+							   "counting":"1"
+							}
+						]
+					}
+				]
+			}
+			,{
+				"sections":
+				[
+					{
+						"name" : "Income and expense reporting",
+						"modules" :
+						[
+							{
+							   "module_id" : "m01",
+							   "name" : "Income Aggregation Query",
+							   "table_id" : "20010377",
+							   "url" : "/modules/dynamic/bookkeeping/transaction_reporting/aggregation_query_income.html"
+							},
+							{
+							   "module_id" : "m02",
+							   "name" : "Expense Aggregation Query",
+							   "table_id" : "20010377",
+							   "url" : "/modules/dynamic/bookkeeping/transaction_reporting/aggregation_query_expense.html"
+							},
+							{
+							   "module_id" : "m03",
+							   "name" : "Income Chart",
+							   "table_id" : "20010377",
+							   "url" : "/modules/dynamic/bookkeeping/transaction_reporting/chart_income.html"
+							},
+							{
+							   "module_id" : "m04",
+							   "name" : "Expense Chart",
+							   "table_id" : "20010377",
+							   "url" : "/modules/dynamic/bookkeeping/transaction_reporting/chart_expense.html"
+							}
+						]
+					}
+				]
+			}
+			,{
+				"sections":
+				[
+					{
+						"name" : "Transaction tax details",
+						"modules" :
+						[
+							{
+							   "module_id" : "tax01",
+							   "name" : "Transaction tax (with export function)",
+							   "table_id" : "20007172",
+							   "url" : "/modules/dynamic/bookkeeping/transaction_reporting/bookkeeping_details_with_basic_toolbar.html"
+							},
+							{
+							   "module_id" : "tax02",
+							   "name" : "Transaction tax (with period selection)",
+							   "table_id" : "20007172",
+							   "url" : "/modules/dynamic/bookkeeping/transaction_reporting/bookkeeping_details_with_period_toolbar.html"
+							},
+							{
+							   "module_id" : "tax03",
+							   "name" : "Transaction tax (with year and month selection)",
+							   "table_id" : "20007172",
+							   "url" : "/modules/dynamic/bookkeeping/transaction_reporting/bookkeeping_details_with_year_month_toolbar.html"
+							},
+							{
+							   "module_id" : "tax04",
+							   "name" : "Transaction tax (with year and quarter selection)",
+							   "table_id" : "20007172",
+							   "url" : "/modules/dynamic/bookkeeping/transaction_reporting/bookkeeping_details_with_year_quarter_toolbar.html"
+							}
+						]
+					}
+				]
+			}
+			,{
+				"sections":
+				[
+					{
+						"name" : "ATO Tax Reporting",
+						"modules" :
+						[
+							{
+							   "module_id" : "ato01",
+							   "name" : "GST Aggregation",
+							   "table_id" : "20010377",
+							   "url" : "/modules/dynamic/bookkeeping/transaction_reporting/aggregation_query_gst.html"
+							},
+							{
+							   "module_id" : "ato02",
+							   "name" : "Tax Return Item Aggregation",
+							   "table_id" : "20010377",
+							   "url" : "/modules/dynamic/bookkeeping/transaction_reporting/aggregation_query_tax_return.html"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

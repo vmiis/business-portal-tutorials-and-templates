@@ -1,0 +1,109 @@
+<a id=back__ID onclick="$vm.back({div:'__ID'});" class="btn"><i class="fa fa-arrow-left"></i> Back</a>
+<script>$('#back__ID').css('top',$vm.header_height+'px')</script><style>#back__ID{position:fixed;}</style>
+
+<!-- Container (Contact Section) -->
+<div id="contact" class="container">
+  <h3 class="text-center">Contact</h3>
+  <p class="text-center"><em>We love our fans!</em></p>
+
+  <div class="row">
+    <div class="col-md-4">
+      <p>Fan? Drop a note.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span>Chicago, US</p>
+      <p><span class="glyphicon glyphicon-phone"></span>Phone: +00 1515151515</p>
+      <p><span class="glyphicon glyphicon-envelope"></span>Email: mail@mail.com</p>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" name="name" placeholder="Name" type="text" required id=Name__ID>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" name="email" placeholder="Email" type="email" required id=Email__ID>
+        </div>
+      </div>
+	  <input class="form-control" name="subject" placeholder="Subject" type="text" required id="Subject__ID">
+	  <br>
+      <textarea class="form-control" name="comments" placeholder="Comment" rows="5" id=Message__ID></textarea>
+      <br>
+	  <p><img id="captha" ></img></p>
+	  <p><input type="text" class="form-control" id="Code__ID" placeholder="Please fill in the number above here"></p>
+	  <br>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <button id=submit__ID class="btn pull-right" type="submit">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <h3 class="text-center">From The Blog</h3>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Mike</a></li>
+    <li><a data-toggle="tab" href="#menu1">Chandler</a></li>
+    <li><a data-toggle="tab" href="#menu2">Peter</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h2>Mike Ross, Manager</h2>
+      <p>Man, we've been on the road for some time now. Looking forward to lorem ipsum.</p>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h2>Chandler Bing, Guitarist</h2>
+      <p>Always a pleasure people! Hope you enjoyed it as much as I did. Could I BE.. any more pleased?</p>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h2>Peter Griffin, Bass player</h2>
+      <p>I mean, sometimes I enjoy the show, but other times I enjoy other things.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+	$('#D__ID').css('height','100%');
+	$('#D__ID').on('load',function(){
+		$VmAPI.request({data:{cmd:'captha'},callback:function(res){
+			$("#captha").attr("src", "data:image/png;base64,"+res.captha);
+		}})
+		$('#submit__ID').show();
+	})
+	$('#submit__ID').on('click',function(){
+		var tid=$vm.app_config.modules.contact.table_id;
+		var record={}
+		record.Name=$('#Name__ID').val();
+		record.Email=$('#Email__ID').val();
+		record.Subject=$('#Subject__ID').val();
+		record.Message=$('#Message__ID').val();
+		if(record.Name=='') {alert('Required'); return;}
+		else if(record.Email=='') {alert('Required'); return;}
+		else if(record.Subject=='') {alert('Required'); return;}
+		else if(record.Message=='') {alert('Required'); return;}
+		var dbv={};
+		var req={cmd:"add_record_anonymous_with_captcha",db_pid:tid,data:record,dbv:dbv,captcha:$('#Code__ID').val()};
+		$VmAPI.request({data:req,callback:function(res){
+			if(res.ret=='-1'){
+				alert('The verification code is not correct.');
+				return;
+			}
+			$vm.alert('Thank you for your message!');
+			//form.reset();
+			$('#Name__ID').val('');
+			$('#Email__ID').val('');
+			$('#Subject__ID').val('');
+			$('#Message__ID').val('');
+			$('#Code__ID').val('')
+			$('#submit__ID').hide();
+		}});
+		//-------------------------------------
+		return false;
+	})
+</script>
+<style>
+	#D__ID{
+		background: rgba(255,255,255,0.9);
+		height:100%;
+		padding-top:30px;
+		overflow: auto;
+	}
+</style>

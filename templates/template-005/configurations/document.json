@@ -1,0 +1,37 @@
+{
+	"name":"Documents",
+	"url":"/modules/dynamic/panel.html",
+	"parameters":{
+	},
+	"panel":
+	{
+		"columns":
+		[
+			{
+				"sections":
+				[
+					{
+						"name":"Documents",
+						"modules":
+						[
+							{
+							   "module_id" : "m01",
+							   "name" : "Documents",
+							   "table_id" : "20008360",
+							   "url" : "/modules/dynamic/document/file.html",
+							   "counting":"1"
+							},
+							{
+							   "module_id" : "category",
+							   "name" : "Category",
+							   "table_id" : "20008361",
+							   "url" : "/modules/dynamic/document/category.html",
+							   "counting":"1"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}
