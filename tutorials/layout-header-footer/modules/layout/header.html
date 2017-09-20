@@ -1,0 +1,78 @@
+<div header>
+	<nav id=header__ID class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<div id=company__ID><a class="navbar-brand" onclick="vm_nav_click_process('home');">Business Portal</a></div>
+			  	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			    	<span class="icon-bar"></span>
+			    	<span class="icon-bar"></span>
+			    	<span class="icon-bar"></span>
+			  	</button>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a class="nav-link" onclick="vm_nav_click_process('home');"><i class="fa fa-home"></i> Home</a></li>
+					<li><a class="nav-link" onclick="vm_nav_click_process('portal');"><i class="fa fa-th"></i> Portal</a></li>
+					<li><a class="nav-link" onclick="vm_nav_click_process('signinout');"><i class="fa fa-user"></i> Sign In/Out</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<script>
+		var vm_nav_click_process=function(name){
+			alert(name)
+		}
+		$('.navbar-nav>li>a').on('click', function(){
+		    $('.navbar-collapse').collapse('hide');
+		});
+	</script>
+	<style>
+		#myNavbar{
+			padding-top:30px;
+			padding-right:50px;
+		}
+		#company__ID{
+			padding-top:20px
+		}
+		@media screen and (max-width:768px){
+			#company__ID{
+				padding-top:0px
+			}
+			#myNavbar{
+				padding-top:0px;
+			}
+		}
+		#header__ID a{
+		  cursor:pointer;
+		}
+
+		/* header, menu color */
+		.navbar {
+	        background-color: #333;
+	    }
+		.navbar li a, .navbar .navbar-brand {
+	        color: #d5d5d5 !important;
+	    }
+	    .navbar-nav li a:hover {
+	        color: #fff !important;
+	    }
+	    .navbar-nav li.active a {
+	        color: #fff !important;
+	        background-color: #29292c !important;
+	    }
+	    .navbar-default .navbar-toggle {
+	        border-color: transparent;
+	    }
+	    .open .dropdown-toggle {
+	        color: #fff;
+	        background-color: #555 !important;
+	    }
+	    .dropdown-menu li a {
+	        color: #000 !important;
+	    }
+	    .dropdown-menu li a:hover {
+	        background-color: red !important;
+	    }
+
+	</style>
+</div>
