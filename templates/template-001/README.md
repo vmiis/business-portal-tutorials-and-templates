@@ -1,6 +1,6 @@
 # Template 001
 
-https://vmiis.github.io/template-001/index.html
+https://vmiis.github.io/business-portal-tutorials-and-templates/templates/template-001/index.html
 
 
 The CSS theme of this template is based on the following w3 CSS template  
