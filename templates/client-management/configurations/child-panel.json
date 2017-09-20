@@ -1,0 +1,51 @@
+{
+	"name":"dynamic client name",
+	"url":"https://vmiis.github.io/modules/panels/panel.2.html",
+	"panel":
+	{
+		"columns":
+		[
+			{
+				"sections":
+				[
+					{
+						"name":"Client's records",
+						"modules":
+						[
+							{
+								"module_id":"client",
+								"name":"Client basic information",
+								"table_id":"20009674",
+								"url":"/modules/client.html",
+								"single_record":"1",
+								"child":"1"
+							},
+							{
+								"module_id":"client_documents",
+								"name":"Documents",
+								"table_id":"20011179",
+								"url":"/modules/document.html",
+								"counting":"1",
+								"child":"1"
+							},
+							{
+								"module_id":"invoice",
+								"name":"Invoices",
+								"table_id":"20011180",
+								"url":"/modules/invoice.html",
+								"counting":"1",
+								"child":"1",
+								"form_module":"client_invoice_form"
+							},
+							{
+								"module_id":"client_invoice_form",
+								"table_id":"20011180",
+								"url":"/modules/invoice.form.html"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

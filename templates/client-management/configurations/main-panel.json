@@ -1,0 +1,51 @@
+{
+	"name":"Client Management",
+	"url":"https://vmiis.github.io/modules/panels/panel.2.html",
+	"parameters":{
+		"child_configuration_url":"/configurations/child-panel.json"
+	},
+	"panel":
+	{
+		"columns":
+		[
+			{
+				"sections":
+				[
+					{
+						"name":"Client management",
+						"modules":
+						[
+							{
+								"module_id":"client",
+								"name":"Clients",
+								"table_id":"20009674",
+								"url":"/modules/client.html",
+								"counting":"1"
+							},
+							{
+								"module_id":"client_documents",
+								"name":"Documents",
+								"table_id":"20011179",
+								"url":"/modules/document.html",
+								"counting":"1"
+							},
+							{
+								"module_id":"client_invoices",
+								"name":"Invoices",
+								"table_id":"20011180",
+								"url":"/modules/invoice.html",
+								"counting":"1",
+								"form_module":"client_invoice_form"
+							},
+							{
+								"module_id":"client_invoice_form",
+								"table_id":"20011180",
+								"url":"/modules/invoice.form.html"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}
