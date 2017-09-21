@@ -1,0 +1,100 @@
+<section>
+    VmInclude:__BASE__/vmiis/Common-Code/grid/grid.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+		VmInclude:__PARTS__/grid/grid.js
+        VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+        _task_fields="FOSQ_1,FOSQ_2,FOSQ_3,FOSQ_4,FOSQ_5,FOSQ_6,FOSQ_7,FOSQ_8,FOSQ_9,FOSQ_10,FOSQ_11,FOSQ_12,FOSQ_13,FOSQ_14,FOSQ_15,FOSQ_16,FOSQ_17,FOSQ_18,FOSQ_19,FOSQ_20,FOSQ_21,FOSQ_22,FOSQ_23,FOSQ_24,FOSQ_25,FOSQ_26,FOSQ_27,FOSQ_28,FOSQ_29,FOSQ_30";
+        _task_fields+=",FOSQ_Activity,FOSQ_Vigilance,FOSQ_Intimacy,FOSQ_Productivity,FOSQ_Social";
+        _fields="_Form|form_module,Status|S3,Notes|NT,Participant,"+_task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'FOSQ_Activity':
+                case 'FOSQ_Vigilance':
+                case 'FOSQ_Intimacy':
+                case 'FOSQ_Productivity':
+                case 'FOSQ_Social':
+                    records[I].vm_readonly[field]=true;
+                break;
+            }
+            _default_cell_render(records,I,field,td,set_value,source);
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+        //    record.FOSQ=(parseInt(record.FOSQ_1)+parseInt(record.FOSQ_2)+parseInt(record.FOSQ_3)+parseInt(record.FOSQ_4)+parseInt(record.FOSQ_5)+parseInt(record.FOSQ_6)+parseInt(record.FOSQ_7)+parseInt(record.FOSQ_8)+parseInt(record.FOSQ_9)+parseInt(record.FOSQ_10)
+        //	+parseInt(record.FOSQ_11)+parseInt(record.FOSQ_12)+parseInt(record.FOSQ_13)+parseInt(record.FOSQ_14)+parseInt(record.FOSQ_15)+parseInt(record.FOSQ_16)+parseInt(record.FOSQ_17)+parseInt(record.FOSQ_18)+parseInt(record.FOSQ_19)+parseInt(record.FOSQ_20)
+        //	+parseInt(record.FOSQ_21)+parseInt(record.FOSQ_22)+parseInt(record.FOSQ_23)+parseInt(record.FOSQ_24)+parseInt(record.FOSQ_25)+parseInt(record.FOSQ_26)+parseInt(record.FOSQ_27)+parseInt(record.FOSQ_28)+parseInt(record.FOSQ_29)+parseInt(record.FOSQ_30)).toString();
+
+            var Activity=0;
+        	if (parseFloat(record.FOSQ_5)>0) Activity=Activity+1;
+        	if (parseFloat(record.FOSQ_14)>0) Activity=Activity+1;
+        	if (parseFloat(record.FOSQ_15)>0) Activity=Activity+1;
+        	if (parseFloat(record.FOSQ_16)>0) Activity=Activity+1;
+        	if (parseFloat(record.FOSQ_22)>0) Activity=Activity+1;
+        	if (parseFloat(record.FOSQ_23)>0) Activity=Activity+1;
+        	if (parseFloat(record.FOSQ_24)>0) Activity=Activity+1;
+        	if (parseFloat(record.FOSQ_25)>0) Activity=Activity+1;
+        	if (parseFloat(record.FOSQ_26)>0) Activity=Activity+1;
+        	if (Activity==0)	record.FOSQ_Activity="0";
+        	else record.FOSQ_Activity=((parseFloat(record.FOSQ_5)+parseFloat(record.FOSQ_14)+parseFloat(record.FOSQ_15)+parseFloat(record.FOSQ_16)+parseFloat(record.FOSQ_22)+parseFloat(record.FOSQ_23)+parseFloat(record.FOSQ_24)+parseFloat(record.FOSQ_25)+parseFloat(record.FOSQ_26))/Activity).toFixed(1);
+
+            var Vigilance=0;
+        	if (parseFloat(record.FOSQ_6)>0) Vigilance+=1;
+        	if (parseFloat(record.FOSQ_7)>0) Vigilance+=1;
+        	if (parseFloat(record.FOSQ_17)>0) Vigilance+=1;
+        	if (parseFloat(record.FOSQ_18)>0) Vigilance+=1;
+        	if (parseFloat(record.FOSQ_20)>0) Vigilance+=1;
+        	if (parseFloat(record.FOSQ_21)>0) Vigilance+=1;
+        	if (Vigilance==0) record.FOSQ_Vigilance="0";
+        	else record.FOSQ_Vigilance=((parseFloat(record.FOSQ_6)+parseFloat(record.FOSQ_7)+parseFloat(record.FOSQ_17)+parseFloat(record.FOSQ_18)+parseFloat(record.FOSQ_20)+parseFloat(record.FOSQ_21))/Vigilance).toFixed(1);
+
+            var Intimacy=0;
+        	if (parseFloat(record.FOSQ_27)>0) Intimacy+=1;
+        	if (parseFloat(record.FOSQ_28)>0) Intimacy+=1;
+        	if (parseFloat(record.FOSQ_29)>0) Intimacy+=1;
+        	if (parseFloat(record.FOSQ_30)>0) Intimacy+=1;
+        	if (Intimacy==0)record.FOSQ_Intimacy="0";
+        	else record.FOSQ_Intimacy=((parseFloat(record.FOSQ_27)+parseFloat(record.FOSQ_28)+parseFloat(record.FOSQ_29)+parseFloat(record.FOSQ_30))/Intimacy).toFixed(1);
+
+            var Productivity=0;
+        	if (parseFloat(record.FOSQ_1)>0) Productivity+=1;
+        	if (parseFloat(record.FOSQ_2)>0) Productivity+=1;
+        	if (parseFloat(record.FOSQ_3)>0) Productivity+=1;
+        	if (parseFloat(record.FOSQ_4)>0) Productivity+=1;
+        	if (parseFloat(record.FOSQ_8)>0) Productivity+=1;
+        	if (parseFloat(record.FOSQ_9)>0) Productivity+=1;
+        	if (parseFloat(record.FOSQ_10)>0) Productivity+=1;
+        	if (parseFloat(record.FOSQ_11)>0) Productivity+=1;
+        	if (Productivity==0) record.FOSQ_Productivity="0";
+        	else record.FOSQ_Productivity=((parseFloat(record.FOSQ_1)+parseFloat(record.FOSQ_2)+parseFloat(record.FOSQ_3)+parseFloat(record.FOSQ_4)+parseFloat(record.FOSQ_8)+parseFloat(record.FOSQ_9)+parseFloat(record.FOSQ_10)+parseFloat(record.FOSQ_11))/Productivity).toFixed(1);
+
+            var Social=0;
+        	if (parseFloat(record.FOSQ_12)>0) Social+=1;
+        	if (parseFloat(record.FOSQ_13)>0) Social+=1;
+        	if (Social==0) record.FOSQ_Social="0";
+        	else record.FOSQ_Social=((parseFloat(record.FOSQ_12)+parseFloat(record.FOSQ_13))/Social).toFixed(1);
+
+
+
+            return _set_status_and_participant(record,dbv);
+        }
+    }
+</script>
+<style>
+    VmInclude:__PARTS__/grid/grid.css
+    ul.ui-autocomplete.ui-menu{font-size:12px}
+    .ui-autocomplete li:hover{
+        color:White;
+        background:#96B202;
+        font-weight:normal;
+        outline:none;
+    }
+</style>

@@ -1,0 +1,140 @@
+<section>
+    VmInclude:__BASE__/vmiis/Common-Code/frame/excel_v2.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__BASE__/vmiis/Common-Code/frame/excel_v2.js
+        VmInclude:__BASE__/vmiis/Common-Code/style/ease-in-out.js
+        VmInclude:__BASE__/woolcock-imr/shiftwork/common-code/task.js
+        //-------------------------------------
+        _task_fields="Choose,Document,Version,Number_RT,Mean_RT,Median_RT,StDev_RT,Lapses,Number_Crashes,RT1,RT2,RT3,RT4,RT5,RT6,RT7,RT8,RT9,RT10,STDVC_F,STDVM_F,SPDEV_F,STDVC_P1,STDVM_P1,SPDEV_P1,STDVC_P2,STDVM_P2,SPDEV_P2,STDVC_P3,STDVM_P3,SPDEV_P3,STDVC_P4,STDVM_P4,SPDEV_P4";
+        _fields="Form|ID,Status|S2,Notes|NT,Participant,"+_task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,Hidden|Participant_uid";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        //_columns_process=function(columns){
+        //    _default_columns_process(columns)
+        //}
+        //-------------------------------------
+        _table_process=function(table){
+            table.ID={renderer:function(instance, td, row, col, prop, value, cellProperties){
+                if(value!==null && value!==undefined && value.length===6) value="#"+value;
+                $(td).html("<u style='cursor:pointer;'>Form</u>");
+                var form_name=$vm.vm['__ID'].name+'_FORM';
+                $(td).find('u').on('click',function(){
+                    var form_name=$vm.vm['__ID'].name+'_FORM';
+                    $vm.load_module_by_name(form_name,$vm.root_layout_content_slot,{rid:value,puid:value,ppid:participant_pid});
+                })
+                return td;
+            }};
+            //-------------------------------------
+            table.S2={width:60, renderer:function(instance, td, row, col, prop, value, cellProperties){
+                if(value!==null && value!==undefined && value.length===6) value="#"+value;
+                if(value!=='') $(td).html("<span style='color:"+value+"'>&#x25cf;</span>");
+                return td;
+            }};
+            //-------------------------------------
+            table.NT={renderer:function(instance, td, row, col, prop, value, cellProperties){
+                if(value===null || value===undefined || value==="") value='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+                var color="#000000"; if(_records[row]!==undefined) color=_records[row].NC;
+                $(td).html("<u style='cursor:pointer;color:"+color+"'>"+value+"</u>");
+                $(td).find('u').on('click',function(){
+                    var task_name=$vm.module_list[$vm.vm['__ID'].name][3];
+                    var visit_task=$vm.module_list[$vm.vm['__ID'].name][4];
+                    $vm.load_module_by_name('notes',$vm.root_layout_content_slot,{
+                        task_record_uid:_records[row].UID,
+                        task_record_pid:_db_pid,
+                        task_name:task_name,
+                        visit_task:visit_task,
+                        participant:$("#excel__ID").handsontable("getDataAtCell",row,2)
+                    });
+                });
+                return td;
+            }};
+            //-------------------------------------
+            table.Participant={type: 'autocomplete',trimDropdown:false,source:function (query, process){
+                var sqlA="with tb as (select Item=@('Local_ID'),Value=UID from [FORM-"+participant_pid+"])";
+                sqlA+=" select top 10 Item,Value from tb where Item like '%'+@S1+'%' ";
+                $vm.read_record_auto({query:query,process:process,sql:sqlA,minLength:0,callback:function(nv){auto_uid=nv;}});
+            }};
+            table.Choose={width:100, renderer:function(instance, td, row, col, prop, value, cellProperties){
+                if( $(td).html()!=="") return td;
+                $vm.set_file_input({td:td,filename_field:"Document",callback:function(file){
+                    psg_file_process(file);
+        			_records[row].Document=file.name;
+                    _records[row].vm_dirty=1;
+                    $('#save__ID').css('background','#E00');
+        			$$("#excel__ID").handsontable("setDataAtCell", row, col+1, file.name);
+                }});
+        		//--------------------------------------
+                return td;
+            }};
+            //-------------------------------------
+            table.Document={width:200,readOnly:true,renderer:function(instance, td, row, col, prop, value, cellProperties){
+                if(_records[row]!==undefined){
+                    $vm.file_link({td:td,rid:_records[row].ID,value:value});
+                }
+                return td;
+            }};
+            //-------------------------------------
+            table.lastModified={readOnly:true};
+            table.Size={readOnly:true};
+            //-------------------------------------
+        }
+        function psg_file_process(file) {
+            var selection = $("#excel__ID").handsontable('getSelected');
+            var excel_row=selection[0];
+
+
+            var reader = new FileReader();
+            reader.onload = (function(e) {
+                var contents = e.target.result;
+                var lines=contents.replace(/"/g,'').replace(/\r/g,'\n').replace(/\n\n/g,'\n').split('\n');
+                for(i=0;i<lines.length;i++){
+                    var row=lines[i].split('=');
+                    switch(row[0]) {
+                        case 'Version':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 6, row[1]);break;
+                        case 'Number_RT':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 7, row[1]);break;
+                        case 'Mean_RT':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 8, row[1]);break;
+                        case 'Median_RT':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 9, row[1]);break;
+                        case 'StDev_RT':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 10, row[1]);break;
+                        case 'Lapses':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 11, row[1]);break;
+                        case 'Number_Crashes':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 12, row[1]);break;
+                        case 'RT1':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 13, row[1]);break;
+                        case 'RT2':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 14, row[1]);break;
+                        case 'RT3':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 15, row[1]);break;
+                        case 'RT4':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 16, row[1]);break;
+                        case 'RT5':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 17, row[1]);break;
+                        case 'RT6':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 18, row[1]);break;
+                        case 'RT7':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 19, row[1]);break;
+                        case 'RT8':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 20, row[1]);break;
+                        case 'RT9':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 21, row[1]);break;
+                        case 'RT10':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 22, row[1]);break;
+                        case 'STDVC_F':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 23, row[1]);break;
+                        case 'STDVM_F':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 24, row[1]);break;
+                        case 'SPDEV_F':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 25, row[1]);break;
+                        case 'STDVC_P1':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 26, row[1]);break;
+                        case 'STDVM_P1':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 27, row[1]);break;
+                        case 'SPDEV_P1':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 28, row[1]);break;
+                        case 'STDVC_P2':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 29, row[1]);break;
+                        case 'STDVM_P2':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 30, row[1]);break;
+                        case 'SPDEV_P2':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 31, row[1]);break;
+                        case 'STDVC_P3':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 32, row[1]);break;
+                        case 'STDVM_P3':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 33, row[1]);break;
+                        case 'SPDEV_P3':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 34, row[1]);break;
+                        case 'STDVC_P4':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 35, row[1]);break;
+                        case 'STDVM_P4':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 36, row[1]);break;
+                        case 'SPDEV_P4':   $('#excel__ID').handsontable('setDataAtCell', excel_row, 37, row[1]);break;
+                    }
+                }
+            });
+            reader.readAsText(file);
+        }
+    }
+</script>
+<style>
+    VmInclude:__BASE__/vmiis/Common-Code/style/default.css
+</style>

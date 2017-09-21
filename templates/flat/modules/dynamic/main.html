@@ -1,0 +1,66 @@
+<div>
+    <div id=toolbar__ID>
+        <a id=back__ID>Back</a> <a id=check_count__ID>Check</a><span class=tab__ID></span><span id=nav_link__ID></span>
+        <span class=tab__ID></span><span class=tab__ID></span><span class=tab__ID></span>
+    </div>
+    <div id=panel__ID style='clear:left;'>
+        <div class='nav__ID'>
+            <span>Participants</span>
+            <ul>
+                <li data-check=1 data-name=participant>Participants</li>
+            </ul>
+            <br>
+            <span>Notes</span>
+            <ul>
+                <li data-check=1 data-name=clinical_trials_notes>All Task Notes</li>
+            </ul>
+            <br>
+            <span>Randomisation setup</span>
+            <ul>
+                <li data-name=randomisation_sleep>Sleep</li>
+                <li data-name=randomisation_obesity>Obesity</li>
+                <li data-name=randomisation_sleep_import>Sleep - import</li>
+                <li data-name=randomisation_obesity_import>Obesity - import</li>
+            </ul>
+            <br>
+            <span>Randomised List</span>
+            <ul>
+                <li data-name=randomised_sleep_query>Sleep</li>
+                <li data-name=randomised_obesity_query>Obesity</li>
+            </ul>
+            <br>
+        </div>
+        VmInclude:__CURRENT_PATH__/task_links.html
+    </div>
+</div>
+<script>
+    //---------------------------------------------
+    function F__ID(){
+        //---------------------------------------------
+        VmInclude:__PARTS__/navigation/navigation.js
+        VmInclude:__CURRENT_PATH__/main.js
+        //---------------------------------------------
+        _set_li_permissions();
+        //---------------------------------------------
+        $('#D__ID').on('load',function(){
+            _nav_name='FLAT';
+            _set_nav_link();
+			if($vm.user=='woolcock'){
+				$('#main__ID').show();
+				$('#child__ID').show();
+			}
+        });
+        //---------------------------------------------
+        $('.nav__ID div').hide();
+		//---------------------------------------------
+    }
+</script>
+<style>
+	VmInclude:__PARTS__/navigation/navigation.css
+	#D__ID{
+		background: url("__PARTS__/image/texture.png");
+		height:100%;
+		overflow: auto;
+		animation: vm_module_fadein 1.0s;
+	}
+</style>

@@ -1,0 +1,64 @@
+VmInclude:/modules/layout/top-right-corner.html
+VmInclude:/modules/layout/header.html
+VmInclude:/modules/layout/content-container.html
+VmInclude:/modules/layout/footer.html
+<script main-layout-js-code>
+	function F__ID(){
+		//------------------------------------
+		setTimeout(function () {
+			var header_height=$('#header__ID').outerHeight(); $vm.header_height=header_height;
+			var footer_height=$('#footer__ID').outerHeight();
+			$('#'+$vm.root_layout_content_slot).css({'height':($(window).height()-header_height-footer_height)+'px'});
+			$('body').css({'padding-top':header_height+'px'})
+		}, 500);
+		//------------------------------------
+		window.onmessage=function(e){
+		    if(e.data.username!=undefined && e.data.user_id!=undefined){
+		        $vm.user=e.data.username;
+		        $vm.user_id=e.data.user_id;
+		        $VmAPI.set_token(e.data.token,e.data.api_url,e.data.username,e.data.user_id,e.data.nickname);
+		        location.reload(true);
+		    }
+		};
+		//-----------------------------------------
+		var show_top_right_corner=function(){
+			if($vm.server=='development') $('#database_d__ID').show();
+			else if($vm.server=='production') $('#database_p__ID').show();
+			if($vm.user=='guest'){
+				$('a[name=signinout]').html('<i class="fa fa-user"></i> SIGN IN')
+				$('#username__ID').text('');
+			}
+			else{
+				$('a[name=signinout]').html('<i class="fa fa-user"></i> SIGN OUT')
+				$('#username__ID').text('Signed in as '+ $vm.user);
+			}
+		}
+		show_top_right_corner();
+		//========================================
+		//load first module
+		var name='home';
+		var url=$vm.app_config.modules[name].url;
+		url+='?_v='+$vm.version+$vm.reload;
+		url=$vm.url(url);
+		if(url[0]=='/') url=$vm.hosting_path+url;
+		//---------------------------
+		var module="L_0_"+name;
+		$vm.module_list[module]={url:url,var:{},}
+		//---------------------------
+		$vm.load_module_by_name(module,$vm.root_layout_content_slot,{
+			name:name,
+			mobj:$vm.vm['__ID'],
+			record:{UID:0},
+			sys:{UID:0,}
+		})
+		//========================================
+	}
+</script>
+<style main-layout-css>
+body{
+	background-position: center;
+	background-size: cover;
+	background-image: url("__HOST__/images/background.jpg");
+	min-height: 100%;
+}
+</style>

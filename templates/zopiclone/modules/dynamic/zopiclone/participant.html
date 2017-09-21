@@ -1,0 +1,55 @@
+<section>
+      VmInclude:__PARTS__/grid/grid.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+		_fields="";
+        _fields="_Form,Participant_ID,Site,Local_ID,Initials,DOB,Sex,Screening_Number,Randomisation_Number,_Data_Entry";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        VmInclude:__PARTS__/grid/grid.js
+        VmInclude:__PARTS__/style/ease-in-out.js
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
+        $('#D__ID').on('back',function(){  _set_req(); _request_data();  })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Participant_ID':
+                    records[I].vm_custom[field]=true;
+                    td.html(records[I].UID);
+                    break;
+                case 'Sex':
+                    VmInclude:__PARTS__/grid/field_gender.js
+                    break;
+                case 'DOB':
+                    VmInclude:__PARTS__/grid/field_dob.js
+                    break;
+                case '_Data_Entry':
+                    records[I].vm_custom[field]=true;
+                    if(_records[I].UID===undefined) return;
+                    td.html("<u style='cursor:pointer'>Data Entry</u>");
+                    td.find('u').on('click',function(){
+                        $vm.load_module_by_name(_module.var.data_entry_by_staff,$vm.root_layout_content_slot,{
+                            rid:_records[I].ID,participant_uid:_records[I].UID,
+                            participant_name:_records[I].Study_ID,
+                        });
+                    });
+                    break;
+            }
+        }
+        //-------------------------------------
+        _set_req=function(){
+            var sql="with tb as (select Information,ID,UID,PUID,DateTime,Author,RowNum=row_number() over (order by ID DESC) from [TABLE-"+_db_pid+"-@S1] )";
+            sql+=",tb2 as (select PUID,S2,S3 from [TABLE-"+_module.var.login_setup_tid+"] )";
+            sql+=" select Information,ID,UID,tb.PUID,DateTime,Author,RowNum,S2,S3 from tb left join tb2 on tb.UID=tb2.PUID where RowNum between @I6 and @I7";
+            var sql_n="select count(ID) from [TABLE-"+_db_pid+"-@S1]";
+            _req={cmd:'query_records',db_pid:_db_pid,sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__PARTS__/grid/grid.css
+</style>

@@ -1,0 +1,95 @@
+<section>
+    VmInclude:__BASE__/vmiis/Common-Code/grid/grid.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__BASE__/vmiis/Common-Code/grid/grid.js
+        VmInclude:__BASE__/vmiis/Common-Code/style/ease-in-out.js
+        VmInclude:__BASE__/vmiis/Common-Code/clinical_trials/task.js
+        //-------------------------------------
+        _task_fields="TFEQ_1,TFEQ_2,TFEQ_3,TFEQ_4,TFEQ_5,TFEQ_6,TFEQ_7,TFEQ_8,TFEQ_9,TFEQ_10,TFEQ_11,TFEQ_12,TFEQ_13,TFEQ_14,TFEQ_15,TFEQ_16,TFEQ_17,TFEQ_18,TFEQ_19,TFEQ_20,TFEQ_21";
+        _task_fields+="";
+        _fields="_Form|form_module,Status|S3,Notes|NT,Participant,"+_task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'xxx':
+                    records[I].vm_readonly[field]=true;
+                break;
+            }
+            _default_cell_render(records,I,field,td,set_value,source);
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+/*            record.TFEQ=(parseInt(record.TFEQ_1)+parseInt(record.TFEQ_2)+parseInt(record.TFEQ_3)+parseInt(record.TFEQ_4)+parseInt(record.TFEQ_5)+parseInt(record.TFEQ_6)+parseInt(record.TFEQ_7)+parseInt(record.TFEQ_8)+parseInt(record.TFEQ_9)+parseInt(record.TFEQ_10)
+        	+parseInt(record.TFEQ_11)+parseInt(record.TFEQ_12)+parseInt(record.TFEQ_13)+parseInt(record.TFEQ_14)+parseInt(record.TFEQ_15)+parseInt(record.TFEQ_16)+parseInt(record.TFEQ_17)+parseInt(record.TFEQ_18)+parseInt(record.TFEQ_19)+parseInt(record.TFEQ_20)
+        	+parseInt(record.TFEQ_21)+parseInt(record.TFEQ_22)+parseInt(record.TFEQ_23)+parseInt(record.TFEQ_24)+parseInt(record.TFEQ_25)+parseInt(record.TFEQ_26)+parseInt(record.TFEQ_27)+parseInt(record.TFEQ_28)+parseInt(record.TFEQ_29)+parseInt(record.TFEQ_30)).toString();
+
+            var Activity=0;
+        	if (parseFloat(record.TFEQ_5)>0) Activity=Activity+1;
+        	if (parseFloat(record.TFEQ_14)>0) Activity=Activity+1;
+        	if (parseFloat(record.TFEQ_15)>0) Activity=Activity+1;
+        	if (parseFloat(record.TFEQ_16)>0) Activity=Activity+1;
+        	if (parseFloat(record.TFEQ_22)>0) Activity=Activity+1;
+        	if (parseFloat(record.TFEQ_23)>0) Activity=Activity+1;
+        	if (parseFloat(record.TFEQ_24)>0) Activity=Activity+1;
+        	if (parseFloat(record.TFEQ_25)>0) Activity=Activity+1;
+        	if (parseFloat(record.TFEQ_26)>0) Activity=Activity+1;
+        	if (Activity==0)	record.TFEQ_Activity="0";
+        	else record.TFEQ_Activity=((parseFloat(record.TFEQ_5)+parseFloat(record.TFEQ_14)+parseFloat(record.TFEQ_15)+parseFloat(record.TFEQ_16)+parseFloat(record.TFEQ_22)+parseFloat(record.TFEQ_23)+parseFloat(record.TFEQ_24)+parseFloat(record.TFEQ_25)+parseFloat(record.TFEQ_26))/Activity).toFixed(1);
+
+            var Vigilance=0;
+        	if (parseFloat(record.TFEQ_6)>0) Vigilance+=1;
+        	if (parseFloat(record.TFEQ_7)>0) Vigilance+=1;
+        	if (parseFloat(record.TFEQ_17)>0) Vigilance+=1;
+        	if (parseFloat(record.TFEQ_18)>0) Vigilance+=1;
+        	if (parseFloat(record.TFEQ_20)>0) Vigilance+=1;
+        	if (parseFloat(record.TFEQ_21)>0) Vigilance+=1;
+        	if (Vigilance==0) record.TFEQ_Vigilance="0";
+        	else record.TFEQ_Vigilance=((parseFloat(record.TFEQ_6)+parseFloat(record.TFEQ_7)+parseFloat(record.TFEQ_17)+parseFloat(record.TFEQ_18)+parseFloat(record.TFEQ_20)+parseFloat(record.TFEQ_21))/Vigilance).toFixed(1);
+
+            var Intimacy=0;
+        	if (parseFloat(record.TFEQ_27)>0) Intimacy+=1;
+        	if (parseFloat(record.TFEQ_28)>0) Intimacy+=1;
+        	if (parseFloat(record.TFEQ_29)>0) Intimacy+=1;
+        	if (parseFloat(record.TFEQ_30)>0) Intimacy+=1;
+        	if (Intimacy==0)record.TFEQ_Intimacy="0";
+        	else record.TFEQ_Intimacy=((parseFloat(record.TFEQ_27)+parseFloat(record.TFEQ_28)+parseFloat(record.TFEQ_29)+parseFloat(record.TFEQ_30))/Intimacy).toFixed(1);
+
+            var Productivity=0;
+        	if (parseFloat(record.TFEQ_1)>0) Productivity+=1;
+        	if (parseFloat(record.TFEQ_2)>0) Productivity+=1;
+        	if (parseFloat(record.TFEQ_3)>0) Productivity+=1;
+        	if (parseFloat(record.TFEQ_4)>0) Productivity+=1;
+        	if (parseFloat(record.TFEQ_8)>0) Productivity+=1;
+        	if (parseFloat(record.TFEQ_9)>0) Productivity+=1;
+        	if (parseFloat(record.TFEQ_10)>0) Productivity+=1;
+        	if (parseFloat(record.TFEQ_11)>0) Productivity+=1;
+        	if (Productivity==0) record.TFEQ_Productivity="0";
+        	else record.TFEQ_Productivity=((parseFloat(record.TFEQ_1)+parseFloat(record.TFEQ_2)+parseFloat(record.TFEQ_3)+parseFloat(record.TFEQ_4)+parseFloat(record.TFEQ_8)+parseFloat(record.TFEQ_9)+parseFloat(record.TFEQ_10)+parseFloat(record.TFEQ_11))/Productivity).toFixed(1);
+
+            var Social=0;
+        	if (parseFloat(record.TFEQ_12)>0) Social+=1;
+        	if (parseFloat(record.TFEQ_13)>0) Social+=1;
+        	if (Social==0) record.TFEQ_Social="0";
+        	else record.TFEQ_Social=((parseFloat(record.TFEQ_12)+parseFloat(record.TFEQ_13))/Social).toFixed(1);
+*/
+            return _set_status_and_participant(record,dbv);
+        }
+    }
+</script>
+<style>
+    VmInclude:__BASE__/vmiis/Common-Code/grid/grid.css
+    ul.ui-autocomplete.ui-menu{font-size:12px}
+    .ui-autocomplete li:hover{
+        color:White;
+        background:#96B202;
+        font-weight:normal;
+        outline:none;
+    }
+</style>

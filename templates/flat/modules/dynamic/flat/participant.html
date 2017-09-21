@@ -1,0 +1,142 @@
+<section>
+      VmInclude:__BASE__/vmiis/Common-Code/grid/grid.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        _fields="_Form,Record_ID,Study_ID,Screening_Number,Clinic_of_Origin,Randomisation_Number,Randomised_by,Initials,Gender,DOB,_Data_Entry,_Setup,_Quest,_Login_ID,_Password";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        VmInclude:__BASE__/vmiis/Common-Code/grid/grid.js
+        VmInclude:__BASE__/vmiis/Common-Code/style/ease-in-out.js
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
+        $('#D__ID').on('back',function(){  _set_req(); _request_data();  })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'Record_ID':
+                    records[I].vm_custom[field]=true;
+                    td.html(records[I].UID);
+                    break;
+                    case 'Randomisation_Number':
+    					records[I].vm_readonly[field]=true;
+    					td.html(records[I][field]);
+    					if(records[I][field]==undefined || records[I][field]==''){
+    						td.on('click', function(){
+                                var sql='';
+                                if(records[I]['Clinic_of_Origin']=='Obesity'){
+                                    sql="select top 1 RN=max(V2) from [TABLE-"+_db_pid+"]";
+                                }
+                                else if (records[I]['Clinic_of_Origin']=='Sleep'){
+                                    sql="select top 1 RN=max(V1) from [TABLE-"+_db_pid+"]";
+                                }
+    							if(sql!=''){
+        							$VmAPI.request({data:{cmd:'query_records',sql:sql},callback:function(res){
+        								if(res.records.length==1){
+        									var RN=parseInt(res.records[0].RN)+1;
+        									RN=RN.toString()
+                                            if(records[I]['Clinic_of_Origin']=='Obesity') RN='OR'+RN;
+                                            else RN='SR'+RN;
+        									td.html(RN);
+                                            records[I].Randomised_by=$vm.user;
+        									set_value(RN,records,I,field);
+        								}
+        							}})
+                                }
+    						})
+    					}
+    				    break;
+                case 'Clinic_of_Origin':
+                    records[I].vm_custom[field]=true;
+                    var html="<select style='border:0;'>"
+                    html+="<option>---</option>";
+                    html+="<option>Obesity</option>";
+                    html+="<option>Sleep</option>";
+                    html+="</select>"
+                    td.html(html)
+                    td.find('select').val(records[I][field])
+                    td.find('select').on('input', function(){
+                        set_value($(this).val(),records,I,field);
+                    });
+                    break;
+                case 'Gender':
+                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_gender.js
+                    break;
+                case 'DOB':
+                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_dob.js
+                    break;
+                case '_Data_Entry':
+                    records[I].vm_custom[field]=true;
+                    if(_records[I].UID===undefined) return;
+                    td.html("<u style='cursor:pointer'>Data Entry</u>");
+                    td.find('u').on('click',function(){
+                        $vm.load_module_by_name(_module.var.data_entry_by_staff,$vm.root_layout_content_slot,{
+                            rid:_records[I].ID,participant_uid:_records[I].UID,
+                            participant_name:_records[I].Study_ID,
+                        });
+                    });
+                    break;
+                case '_Setup':
+                    records[I].vm_custom[field]=true;
+                    if(_records[I].UID===undefined) return;
+                    td.html("<u style='cursor:pointer'>Setup</u>");
+                    td.find('u').on('click',function(){
+                        $vm.load_module_by_name(_module.var.participant_login_setup,$vm.root_layout_content_slot,{uid:_records[I].UID});
+                    });
+                    break;
+                case '_Quest':
+                    records[I].vm_custom[field]=true;
+                    if(_records[I].UID===undefined) return;
+                    td.html("<u style='cursor:pointer'>Quest</u>");
+                    td.find('u').on('click',function(){
+                        var sql="select List=@('List') from [TABLE-"+_module.var.login_setup_tid+"] where PUID="+_records[I].UID;
+                        $VmAPI.request({data:{cmd:'query_records',sql:sql},callback:function(res){
+                            if(res.records.length==1){
+                                $vm.load_module_by_name(_module.var.data_entry_by_participant,$vm.root_layout_content_slot,{
+                                    participant_uid:_records[I].UID,
+                                    participant:records[I].Study_ID,
+                                    participant_username:_records[I].UID+"-"+_module.var.login_setup_tid,
+                                    task_list:res.records[0].List,
+                                });
+                            }
+                            else{
+                                alert('No setup');
+                            }
+                        }});
+                    });
+                    break;
+                case '_Login_ID':
+                    records[I].vm_readonly[field]=true;
+                    td.html(records[I].S2);
+                    break;
+                case '_Password':
+                    records[I].vm_readonly[field]=true;
+                    td.html(records[I].S3);
+                    break;
+            }
+        }
+        //-------------------------------------
+        _set_req=function(){
+            var sql="with tb as (select Information,ID,UID,PUID,DateTime,Author,RowNum=row_number() over (order by ID DESC) from [TABLE-"+_db_pid+"-@S1] )";
+            sql+=",tb2 as (select PUID,S2,S3 from [TABLE-"+_module.var.login_setup_tid+"] )";
+            sql+=" select Information,ID,UID,tb.PUID,DateTime,Author,RowNum,S2,S3 from tb left join tb2 on tb.UID=tb2.PUID where RowNum between @I6 and @I7";
+            var sql_n="select count(ID) from [TABLE-"+_db_pid+"-@S1]";
+            _req={cmd:'query_records',db_pid:_db_pid,sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+        }
+        //-------------------------------------
+		_before_submit=function(record,dbv){
+            if(record.Randomisation_Number!='' && record.Randomisation_Number.substr(0, 2)=='SR'){
+				dbv.V1=parseInt(record.Randomisation_Number.substr(2));
+			}
+            if(record.Randomisation_Number!='' && record.Randomisation_Number.substr(0, 2)=='OR'){
+				dbv.V2=parseInt(record.Randomisation_Number.substr(2));
+			}
+            return true;
+        };
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__BASE__/vmiis/Common-Code/grid/grid.css
+</style>

@@ -1,0 +1,42 @@
+<section>
+    VmInclude:__BASE__/vmiis/Common-Code/grid/grid.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__BASE__/vmiis/Common-Code/grid/grid.js
+        VmInclude:__BASE__/vmiis/Common-Code/style/ease-in-out.js
+        VmInclude:__BASE__/vmiis/Common-Code/clinical_trials/task.js
+        //-------------------------------------
+        _task_fields="IWQLQ_1,IWQLQ_2,IWQLQ_3,IWQLQ_4,IWQLQ_5,IWQLQ_6,IWQLQ_7,IWQLQ_8,IWQLQ_9,IWQLQ_10,IWQLQ_11,IWQLQ_12,IWQLQ_13,IWQLQ_14,IWQLQ_15,IWQLQ_16,IWQLQ_17,IWQLQ_18,IWQLQ_19,IWQLQ_20,IWQLQ_21,IWQLQ_22,IWQLQ_23,IWQLQ_24,IWQLQ_25,IWQLQ_26,IWQLQ_27,IWQLQ_28,IWQLQ_29,IWQLQ_30,IWQLQ_31";
+        //_task_fields+=",IWQLQ_Activity,IWQLQ_Vigilance,IWQLQ_Intimacy,IWQLQ_Productivity,IWQLQ_Social";
+        _fields="_Form|form_module,Status|S3,Notes|NT,Participant,"+_task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'IWQLQ':
+                    records[I].vm_readonly[field]=true;
+                break;
+            }
+            _default_cell_render(records,I,field,td,set_value,source);
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+    }
+</script>
+<style>
+    VmInclude:__BASE__/vmiis/Common-Code/grid/grid.css
+    ul.ui-autocomplete.ui-menu{font-size:12px}
+    .ui-autocomplete li:hover{
+        color:White;
+        background:#96B202;
+        font-weight:normal;
+        outline:none;
+    }
+</style>

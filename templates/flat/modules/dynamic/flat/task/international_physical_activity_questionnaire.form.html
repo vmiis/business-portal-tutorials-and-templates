@@ -1,0 +1,659 @@
+<section>
+    VmInclude:__BASE__/vmiis/Common-Code/toolbar/back_save.html
+</section>
+<section class="w3s">
+    <form id=F__ID class="w3-padding-0 w3-margin-0">
+        <div class="w3-container w3-center">
+            <h2 class="" >INTERNATIONAL PHYSICAL ACTIVITY QUESTIONNAIRE</h2>
+        </div>
+        <div class="w3-container w3-content w3-medium ">
+                We are interested in finding out about the kinds of physical activities that people do as part of their everyday lives. The questions will ask you about the time you spent being physically active in the last 7 days. Please answer each question even if you do not consider yourself to be an active person. Please think about the activities you do at work, as part of your house and yard work, to get from place to place, and in your spare time for recreation, exercise or sport.
+                <br>
+                <br>
+                Think about all the <b>vigorous</b> and <b>moderate</b> activities that you did in the <b><u>last 7 days.</u></b> <b>Vigorous</b> physical activities refer to activities that take hard physical effort and make you breathe much harder than normal. <b>Moderate</b> activities refer to activities that take moderate physical effort and make you breathe somewhat harder than normal.            <br>
+                <br>
+                <br>
+        </div>
+        <br>
+            <div class="w3-container w3-content w3-row">
+                <div  class="w3-container">
+                    <div class="w3-container  w3-half" id=tr_participant__ID style='display:none' data-id=Participant data-custom=1>
+                        <input class="w3-input" name=Participant  id=Participant__ID  type=text placeholder='select a partcipant...' />
+                    </div>
+                    <div class="w3-container  w3-quarter">
+                        <input class="w3-border-0 w3-text-grey w3-center" name=Participant_uid id=Participant_uid__ID type=text readonly  />
+                    </div>
+                    <div class="w3-container  w3-quarter">
+                        <u  class="w3-btn w3-white w3-border-bottom " id=Participant_r__ID>Remove</u>
+                    </div>
+                </div>
+                <div class=" w3-container " >
+                    <hr style="border-top:5px solid #888;">
+                </div>
+                <div id=part1__ID class="w3-container w3-padding">
+                    <div class="w3-container w3-content w3-large ">
+                        PART 1: JOB-RELATED PHYSICAL ACTIVITY
+                        <div  class="w3-container w3-content w3-medium ">
+                            <br>The first section is about your work. This includes paid jobs, farming, volunteer work, course work, and any other unpaid work that you did outside your home. Do not include unpaid work you might do around your home, like housework, yard work, general maintenance, and caring for your family. These are asked in Part 3.
+                        </div>
+                        <div  class="w3-container w3-content w3-medium ">
+                            <br>1.	Do you currently have a job or do any unpaid work outside your home?
+                        </div>
+                        <div class="w3-container " data-id=IPAQ_1 data-custom=1 >
+                            <input class="w3-radio w3-padding-4" type="radio" name="IPAQ_1" value="1" \> Yes
+                        </div>
+                        <div class="w3-container w3-padding-4 " data-id=IPAQ_1 data-custom=1 >
+                            <input class="w3-radio" type="radio" name="IPAQ_1" value="2" \> No  <span class="w3-medium">&rarr; Skip to PART 2:Transportation</span>
+                        </div>
+                    </div>
+                    <div id=Q2__ID class="">
+                        <div  class="w3-container w3-content w3-medium ">
+                            <br>The next questions are about all the physical activity you did in the <b>last 7 days</b> as part of your paid or unpaid work. This does not include traveling to and from work.
+                        </div>
+                        <div  class="w3-container w3-content w3-medium ">
+                        <br>2.	 During the <b>last 7 days</b>, on how many days did you do <b>vigorous</b> physical activities like heavy lifting, digging, heavy construction, or climbing up stairs <b>as part of your work</b>? Think about only those physical activities that you did for at least 10 minutes at a time.
+                        </div>
+                        <div class="w3-container " data-id=IPAQ_2 data-custom=1 >
+                            <br><select class="w3-select" name="IPAQ_2"><option>1</option><option>2</option><option>4</option><option>5</option><option>6</option><option>7</option></select> <b>days per week</b>
+    <!--                        <br><input class="w3-radio w3-padding-4" type="number"  min="0" max="7" name="IPAQ_2" \> <b>days per week</b>
+    -->
+                        </div>
+                        <div class="w3-container w3-padding-4 " data-id=IPAQ_2C data-custom=1 >
+                            <input class="w3-check" type="checkbox" name="IPAQ_2C"  \> No vigorous job-related physical activity  <span class="w3-medium">&rarr; Skip to question 4</span>
+                        </div>
+                        <div id=Q3__ID>
+                            <div  class="w3-container w3-content w3-medium ">
+                            <br>3.	How much time did you usually spend on one of those days doing <b>vigorous</b> physical activities as part of your work?
+                            </div>
+                            <div class="w3-container " data-id=IPAQ_3H data-custom=1 >
+                                <br><select class="w3-select" name="IPAQ_3H"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option></select> <b>hours per day</b>
+    <!--                            <br><input class="w3-radio w3-padding-4" type="number" min="0" max="23" name="IPAQ_3H" \> <b>hours per day</b> -->
+                            </div>
+                            <div class="w3-container " data-id=IPAQ_3M data-custom=1 >
+                                <br><select class="w3-select" name="IPAQ_3M"><option>0</option><option>5</option><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option><option>35</option><option>40</option><option>45</option><option>50</option><option>55</option></select> <b>minutes per day</b>
+    <!--                            <br><input class="w3-radio w3-padding-4" type="number" min="0" max="59" name="IPAQ_3M" \> <b>minutes per day</b> -->
+                            </div>
+                        </div>
+                        <div  class="w3-container w3-content w3-medium ">
+                        <br>4.	Again, think about only those physical activities that you did for at least 10 minutes at a time. During the <b>last 7 days</b>, on how many days did you do <b>moderate</b> physical activities like carrying light loads <b>as part of your work</b>? Please do not include walking.
+                        </div>
+                        <div class="w3-container " data-id=IPAQ_4 data-custom=1 >
+                            <br><select class="w3-select" name="IPAQ_4"><option>1</option><option>2</option><option>4</option><option>5</option><option>6</option><option>7</option></select> <b>days per week</b>
+                        </div>
+                        <div class="w3-container w3-padding-4 " data-id=IPAQ_4C data-custom=1 >
+                            <input class="w3-check" type="checkbox" name="IPAQ_4C"  \> No moderate job-related physical activity  <span class="w3-medium">&rarr; Skip to question 6</span>
+                        </div>
+                        <div id=Q5__ID>
+                            <div  class="w3-container w3-content w3-medium ">
+                            <br>5.	How much time did you usually spend on one of those days doing <b>moderate</b> physical activities as part of your work?
+                            </div>
+                            <div class="w3-container " data-id=IPAQ_5H data-custom=1 >
+                                <br><select class="w3-select" name="IPAQ_5H"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option></select> <b>hours per day</b>
+                            </div>
+                            <div class="w3-container " data-id=IPAQ_5M data-custom=1 >
+                                <br><select class="w3-select" name="IPAQ_5M" ><option>0</option><option>5</option><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option><option>35</option><option>40</option><option>45</option><option>50</option><option>55</option></select> <b>minutes per day</b>
+                            </div>
+                        </div>
+                        <div  class="w3-container w3-content w3-medium ">
+                        <br>6.	During the<b> last 7 days</b>, on how many days did you <b>walk</b> for at least 10 minutes at a time as <b>part of your work</b>? Please do not count any walking you did to travel to or from work.
+                        </div>
+                        <div class="w3-container " data-id=IPAQ_6 data-custom=1 >
+                            <br><select class="w3-select" name="IPAQ_6"><option>1</option><option>2</option><option>4</option><option>5</option><option>6</option><option>7</option></select> <b>days per week</b>
+                        </div>
+                        <div class="w3-container w3-padding-4 " data-id=IPAQ_6C data-custom=1 >
+                            <input class="w3-check" type="checkbox" name="IPAQ_6C"  \> No moderate job-related physical activity  <span class="w3-medium">&rarr; Skip to PART 2: TRANSPORTATION</span>
+                        </div>
+                        <div id=Q7__ID>
+                            <div  class="w3-container w3-content w3-medium ">
+                            <br>7.	How much time did you usually spend on one of those days <b>walking</b> as part of your work?
+                            </div>
+                            <div class="w3-container " data-id=IPAQ_7H data-custom=1 >
+                                <br><select class="w3-select" name="IPAQ_7H"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option></select> <b>hours per day</b>
+                            </div>
+                            <div class="w3-container " data-id=IPAQ_7M data-custom=1 >
+                                <br><select class="w3-select" name="IPAQ_7M" ><option>0</option><option>5</option><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option><option>35</option><option>40</option><option>45</option><option>50</option><option>55</option></select> <b>minutes per day</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" w3-container " >
+                    <hr style="border-top:5px solid #888;">
+                </div>
+                <div id=part2_ID class="w3-container w3-padding">
+                    <div class="w3-container w3-content w3-large ">
+                        PART 2: TRANSPORTATION PHYSICAL ACTIVITY
+                    </div>
+                    <div id=Q2__ID class="">
+                        <div  class="w3-container w3-content w3-medium ">
+                            <br>These questions are about how you traveled from place to place, including to places like work, stores, movies, and so on.
+                        </div>
+                        <div  class="w3-container w3-content w3-medium ">
+                        <br>8.	During the <b>last 7 days</b>, on how many days did you <b>travel in a motor vehicle</b> like a train, bus, car, or tram?
+                        </div>
+                        <div class="w3-container " data-id=IPAQ_8 data-custom=1 >
+                            <br><select class="w3-select" name="IPAQ_8"><option>1</option><option>2</option><option>4</option><option>5</option><option>6</option><option>7</option></select> <b>days per week</b>
+                        </div>
+                        <div class="w3-container w3-padding-4 " data-id=IPAQ_8C data-custom=1 >
+                            <input class="w3-check" type="checkbox" name="IPAQ_8C"  \> No traveling in a motor vehicle  <span class="w3-medium">&rarr; Skip to question 10</span>
+                        </div>
+                        <div id=Q9__ID>
+                            <div  class="w3-container w3-content w3-medium ">
+                            <br>9.	How much time did you usually spend on one of those days <b>traveling</b> in a train, bus, car, tram, or other kind of motor vehicle?
+                            </div>
+                            <div class="w3-container " data-id=IPAQ_9H data-custom=1 >
+                                <br><select class="w3-select" name="IPAQ_9H"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option></select> <b>hours per day</b>
+                            </div>
+                            <div class="w3-container " data-id=IPAQ_9M data-custom=1 >
+                                <br><select class="w3-select" name="IPAQ_9M" ><option>0</option><option>5</option><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option><option>35</option><option>40</option><option>45</option><option>50</option><option>55</option></select> <b>minutes per day</b>
+                            </div>
+                        </div>
+                        <div  class="w3-container w3-content w3-medium ">
+                            <br>Now think only about the <b>bicycling</b> and <b>walking</b> you might have done to travel to and from work, to do errands, or to go from place to place.
+                        </div>
+                        <div  class="w3-container w3-content w3-medium ">
+                        <br>10.	During the <b>last 7 days</b>, on how many days did you bicycle for at least 10 minutes at a time to go <b>from place to place</b>?
+                        </div>
+                        <div class="w3-container " data-id=IPAQ_10 data-custom=1 >
+                            <br><select class="w3-select" name="IPAQ_10"><option>1</option><option>2</option><option>4</option><option>5</option><option>6</option><option>7</option></select> <b>days per week</b>
+                        </div>
+                        <div class="w3-container w3-padding-4 " data-id=IPAQ_10C data-custom=1 >
+                            <input class="w3-check" type="checkbox" name="IPAQ_10C"  \> No bicycling from place to place  <span class="w3-medium">&rarr; Skip to question 12</span>
+                        </div>
+                        <div id=Q11__ID>
+                            <div  class="w3-container w3-content w3-medium ">
+                            <br>11.	How much time did you usually spend on one of those days to <b>bicycle</b> from place to place?
+                            </div>
+                            <div class="w3-container " data-id=IPAQ_11H data-custom=1 >
+                                <br><select class="w3-select" name="IPAQ_11H"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option></select> <b>hours per day</b>
+                            </div>
+                            <div class="w3-container " data-id=IPAQ_11M data-custom=1 >
+                                <br><select class="w3-select" name="IPAQ_11M" ><option>0</option><option>5</option><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option><option>35</option><option>40</option><option>45</option><option>50</option><option>55</option></select> <b>minutes per day</b>
+                            </div>
+                        </div>
+                        <div  class="w3-container w3-content w3-medium ">
+                        <br>12.	During the <b>last 7 days</b>, on how many days did you walk for at least 10 minutes at a time to go <b>from place to place</b>?
+                        </div>
+                        <div class="w3-container " data-id=IPAQ_12 data-custom=1 >
+                            <br><select class="w3-select" name="IPAQ_12"><option>1</option><option>2</option><option>4</option><option>5</option><option>6</option><option>7</option></select> <b>days per week</b>
+                        </div>
+                        <div class="w3-container w3-padding-4 " data-id=IPAQ_12C data-custom=1 >
+                            <input class="w3-check" type="checkbox" name="IPAQ_12C"  \> No walking from place to place  <span class="w3-medium">&rarr; Skip to PART 3: HOUSEWORK, HOUSE MAINTENANCE, AND CARING FOR FAMILY</span>
+                        </div>
+                        <div id=Q13__ID>
+                            <div  class="w3-container w3-content w3-medium ">
+                            <br>13.	How much time did you usually spend on one of those days <b>walking</b> from place to place?
+                            </div>
+                            <div class="w3-container " data-id=IPAQ_13H data-custom=1 >
+                                <br><select class="w3-select" name="IPAQ_13H"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option></select> <b>hours per day</b>
+                            </div>
+                            <div class="w3-container " data-id=IPAQ_13M data-custom=1 >
+                                <br><select class="w3-select" name="IPAQ_13M" ><option>0</option><option>5</option><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option><option>35</option><option>40</option><option>45</option><option>50</option><option>55</option></select> <b>minutes per day</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" w3-container " >
+                    <hr style="border-top:5px solid #888;">
+                </div>
+                <div id=part3 class="w3-container w3-padding">
+                    <div class="w3-container w3-content w3-large ">
+                        PART 3: HOUSEWORK, HOUSE MAINTENANCE, AND CARING FOR FAMILY
+                    </div>
+                    <div class="">
+                        <div  class="w3-container w3-content w3-medium ">
+                            <br>This section is about some of the physical activities you might have done in the <b>last 7 days</b> in and around your home, like housework, gardening, yard work, general maintenance work, and caring for your family.
+                        </div>
+                        <div  class="w3-container w3-content w3-medium ">
+                        <br>14.	Think about only those physical activities that you did for at least 10 minutes at a time. During the <b>last 7 days</b>, on how many days did you do <b>vigorous</b> physical activities like heavy lifting, chopping wood, shoveling snow, or digging <b>in the garden or yard?</b>
+                        </div>
+                        <div class="w3-container " data-id=IPAQ_14 data-custom=1 >
+                            <br><select class="w3-select" name="IPAQ_14"><option>1</option><option>2</option><option>4</option><option>5</option><option>6</option><option>7</option></select> <b>days per week</b>
+                        </div>
+                        <div class="w3-container w3-padding-4 " data-id=IPAQ_14C data-custom=1 >
+                            <input class="w3-check" type="checkbox" name="IPAQ_14C"  \> No vigorous activity in garden or yard  <span class="w3-medium">&rarr; Skip to question 16</span>
+                        </div>
+                        <div id=Q15__ID>
+                            <div  class="w3-container w3-content w3-medium ">
+                            <br>15.	How much time did you usually spend on one of those days doing <b>vigorous</b> physical activities in the garden or yard?
+                            </div>
+                            <div class="w3-container " data-id=IPAQ_15H data-custom=1 >
+                                <br><select class="w3-select" name="IPAQ_15H"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option></select> <b>hours per day</b>
+                            </div>
+                            <div class="w3-container " data-id=IPAQ_15M data-custom=1 >
+                                <br><select class="w3-select" name="IPAQ_15M" ><option>0</option><option>5</option><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option><option>35</option><option>40</option><option>45</option><option>50</option><option>55</option></select> <b>minutes per day</b>
+                            </div>
+                        </div>
+                        <div  class="w3-container w3-content w3-medium ">
+                        <br>16.	Again, think about only those physical activities that you did for at least 10 minutes at a time. During the <b>last 7 days</b>, on how many days did you do <b>moderate</b> activities like carrying light loads, sweeping, washing windows, and raking <b>in the garden or yard</b>?
+                        </div>
+                        <div class="w3-container " data-id=IPAQ_16 data-custom=1 >
+                            <br><select class="w3-select" name="IPAQ_16"><option>1</option><option>2</option><option>4</option><option>5</option><option>6</option><option>7</option></select> <b>days per week</b>
+                        </div>
+                        <div class="w3-container w3-padding-4 " data-id=IPAQ_16C data-custom=1 >
+                            <input class="w3-check" type="checkbox" name="IPAQ_16C"  \> No moderate activity in garden or yard  <span class="w3-medium">&rarr; Skip to question 18</span>
+                        </div>
+                        <div id=Q17__ID>
+                            <div  class="w3-container w3-content w3-medium ">
+                            <br>17.	How much time did you usually spend on one of those days doing <b>moderate</b> physical activities in the garden or yard?
+                            </div>
+                            <div class="w3-container " data-id=IPAQ_17H data-custom=1 >
+                                <br><select class="w3-select" name="IPAQ_17H"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option></select> <b>hours per day</b>
+                            </div>
+                            <div class="w3-container " data-id=IPAQ_17M data-custom=1 >
+                                <br><select class="w3-select" name="IPAQ_17M" ><option>0</option><option>5</option><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option><option>35</option><option>40</option><option>45</option><option>50</option><option>55</option></select> <b>minutes per day</b>
+                            </div>
+                        </div>
+                        <div  class="w3-container w3-content w3-medium ">
+                        <br>18.	Once again, think about only those physical activities that you did for at least 10 minutes at a time. During the <b>last 7 days</b>, on how many days did you do <b>moderate</b> activities like carrying light loads, washing windows, scrubbing floors and sweeping <b>inside your home</b>?
+                        </div>
+                        <div class="w3-container " data-id=IPAQ_18 data-custom=1 >
+                            <br><select class="w3-select" name="IPAQ_18"><option>1</option><option>2</option><option>4</option><option>5</option><option>6</option><option>7</option></select> <b>days per week</b>
+                        </div>
+                        <div class="w3-container w3-padding-4 " data-id=IPAQ_18C data-custom=1 >
+                            <input class="w3-check" type="checkbox" name="IPAQ_18C"  \> No moderate activity inside home<span class="w3-medium">&rarr; Skip to PART 4: RECREATION, SPORT AND LEISURE-TIME PHYSICAL ACTIVITY</span>
+                        </div>
+                        <div id=Q19__ID>
+                            <div  class="w3-container w3-content w3-medium ">
+                            <br>19.	How much time did you usually spend on one of those days doing <b>moderate</b> physical activities inside your home?
+                            </div>
+                            <div class="w3-container " data-id=IPAQ_19H data-custom=1 >
+                                <br><select class="w3-select" name="IPAQ_19H"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option></select> <b>hours per day</b>
+                            </div>
+                            <div class="w3-container " data-id=IPAQ_19M data-custom=1 >
+                                <br><select class="w3-select" name="IPAQ_19M" ><option>0</option><option>5</option><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option><option>35</option><option>40</option><option>45</option><option>50</option><option>55</option></select> <b>minutes per day</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" w3-container " >
+                    <hr style="border-top:5px solid #888;">
+                </div>
+                <div id=part4__ID class="w3-container w3-padding">
+                    <div class="w3-container w3-content w3-large ">
+                        PART 4: RECREATION, SPORT, AND LEISURE-TIME PHYSICAL ACTIVITY
+                    </div>
+                    <div id=Q2__ID class="">
+                        <div  class="w3-container w3-content w3-medium ">
+                            <br>This section is about all the physical activities that you did in the <b>last 7 days</b> solely for recreation, sport, exercise or leisure. Please do not include any activities you have already mentioned.
+                        </div>
+                        <div  class="w3-container w3-content w3-medium ">
+                        <br>20.	Not counting any walking you have already mentioned, during the <b>last 7 days</b>, on how many days did you <b>walk</b> for at least 10 minutes at a time <b>in your leisure time</b>?
+                        </div>
+                        <div class="w3-container " data-id=IPAQ_20 data-custom=1 >
+                            <br><select class="w3-select" name="IPAQ_20"><option>1</option><option>2</option><option>4</option><option>5</option><option>6</option><option>7</option></select> <b>days per week</b>
+                        </div>
+                        <div class="w3-container w3-padding-4 " data-id=IPAQ_20C data-custom=1 >
+                            <input class="w3-check" type="checkbox" name="IPAQ_20C"  \> No walking in leisure time  <span class="w3-medium">&rarr; Skip to question 22</span>
+                        </div>
+                        <div id=Q21__ID>
+                            <div  class="w3-container w3-content w3-medium ">
+                            <br>21.	How much time did you usually spend on one of those days <b>walking</b> in your leisure time?
+                            </div>
+                            <div class="w3-container " data-id=IPAQ_21H data-custom=1 >
+                                <br><select class="w3-select" name="IPAQ_21H"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option></select> <b>hours per day</b>
+                            </div>
+                            <div class="w3-container " data-id=IPAQ_21M data-custom=1 >
+                                <br><select class="w3-select" name="IPAQ_21M" ><option>0</option><option>5</option><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option><option>35</option><option>40</option><option>45</option><option>50</option><option>55</option></select> <b>minutes per day</b>
+                            </div>
+                        </div>
+                        <div  class="w3-container w3-content w3-medium ">
+                        <br>22.	Think about only those physical activities that you did for at least 10 minutes at a time. During the <b>last 7 days</b>, on how many days did you do <b>vigorous</b> physical activities like aerobics, running, fast bicycling, or fast swimming <b>in your leisure time</b>?
+                        </div>
+                        <div class="w3-container " data-id=IPAQ_22 data-custom=1 >
+                            <br><select class="w3-select" name="IPAQ_22"><option>1</option><option>2</option><option>4</option><option>5</option><option>6</option><option>7</option></select> <b>days per week</b>
+                        </div>
+                        <div class="w3-container w3-padding-4 " data-id=IPAQ_22C data-custom=1 >
+                            <input class="w3-check" type="checkbox" name="IPAQ_22C"  \> No vigorous activity in leisure time<span class="w3-medium">&rarr; Skip to question 24</span>
+                        </div>
+                        <div id=Q23__ID>
+                            <div  class="w3-container w3-content w3-medium ">
+                            <br>23.	How much time did you usually spend on one of those days doing <b>vigorous</b> physical activities in your leisure time?
+                            </div>
+                            <div class="w3-container " data-id=IPAQ_23H data-custom=1 >
+                                <br><select class="w3-select" name="IPAQ_23H"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option></select> <b>hours per day</b>
+                            </div>
+                            <div class="w3-container " data-id=IPAQ_23M data-custom=1 >
+                                <br><select class="w3-select" name="IPAQ_23M" ><option>0</option><option>5</option><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option><option>35</option><option>40</option><option>45</option><option>50</option><option>55</option></select> <b>minutes per day</b>
+                            </div>
+                        </div>
+                        <div  class="w3-container w3-content w3-medium ">
+                        <br>24.	Again, think about only those physical activities that you did for at least 10 minutes at a time. During the <b>last 7 days</b>, on how many days did you do <b>moderate</b> physical activities like bicycling at a regular pace, swimming at a regular pace, and doubles tennis <b>in your leisure time</b>?
+                        </div>
+                        <div class="w3-container " data-id=IPAQ_24 data-custom=1 >
+                            <br><select class="w3-select" name="IPAQ_24"><option>1</option><option>2</option><option>4</option><option>5</option><option>6</option><option>7</option></select> <b>days per week</b>
+                        </div>
+                        <div class="w3-container w3-padding-4 " data-id=IPAQ_24C data-custom=1 >
+                            <input class="w3-check" type="checkbox" name="IPAQ_24C"  \> No moderate activity in leisure time<span class="w3-medium">&rarr; Skip to PART 5: TIME SPENT SITTING</span>
+                        </div>
+                        <div id=Q25__ID>
+                            <div  class="w3-container w3-content w3-medium ">
+                            <br>25.	How much time did you usually spend on one of those days doing <b>moderate</b> physical activities in your leisure time?
+                            </div>
+                            <div class="w3-container " data-id=IPAQ_25H data-custom=1 >
+                                <br><select class="w3-select" name="IPAQ_25H"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option></select> <b>hours per day</b>
+                            </div>
+                            <div class="w3-container " data-id=IPAQ_25M data-custom=1 >
+                                <br><select class="w3-select" name="IPAQ_25M" ><option>0</option><option>5</option><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option><option>35</option><option>40</option><option>45</option><option>50</option><option>55</option></select> <b>minutes per day</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" w3-container " >
+                    <hr style="border-top:5px solid #888;">
+                </div>
+                <div id=part5__ID class="w3-container w3-padding">
+                    <div class="w3-container w3-content w3-large ">
+                        PART 5: TIME SPENT SITTING
+                    </div>
+                    <div id=Q2__ID class="">
+                        <div  class="w3-container w3-content w3-medium ">
+                            <br>The last questions are about the time you spend sitting while at work, at home, while doing course work and during leisure time. This may include time spent sitting at a desk, visiting friends, reading or sitting or lying down to watch television. Do not include any time spent sitting in a motor vehicle that you have already told me about.
+                        </div>
+                        <div  class="w3-container w3-content w3-medium ">
+                        <br>26.	During the <b>last 7 days</b>, how much time did you usually spend <b>sitting</b> on a <b>weekday</b>?
+                        </div>
+                        <div class="w3-container " data-id=IPAQ_26H data-custom=1 >
+                            <br><select class="w3-select" name="IPAQ_26H"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option></select> <b>hours per day</b>
+                        </div>
+                        <div class="w3-container " data-id=IPAQ_26M data-custom=1 >
+                            <br><select class="w3-select" name="IPAQ_26M" ><option>0</option><option>5</option><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option><option>35</option><option>40</option><option>45</option><option>50</option><option>55</option></select> <b>minutes per day</b>
+                        </div>
+                        <div  class="w3-container w3-content w3-medium ">
+                        <div  class="w3-container w3-content w3-medium ">
+                        <br>27.	During the <b>last 7 days</b>, how much time did you usually spend <b>sitting</b> on a <b>weekend day</b>?
+                        </div>
+                        <div class="w3-container " data-id=IPAQ_27H data-custom=1 >
+                            <br><select class="w3-select" name="IPAQ_27H"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option></select> <b>hours per day</b>
+                        </div>
+                        <div class="w3-container " data-id=IPAQ_27M data-custom=1 >
+                            <br><select class="w3-select" name="IPAQ_27M" ><option>0</option><option>5</option><option>10</option><option>15</option><option>20</option><option>25</option><option>30</option><option>35</option><option>40</option><option>45</option><option>50</option><option>55</option></select> <b>minutes per day</b>
+                        </div>
+                        <div  class="w3-container w3-content w3-medium ">
+                            <br><b>This is the end of the questionnaire, thank you for participating</b>
+                        </div>
+                    </div>
+                </div>
+                <div class=" w3-container " >
+                    <hr style="border-top:5px solid #888;">
+                </div>
+            <br>
+        </div>
+            <div class="w3-container w3-content w3-row">
+                <div id=toolbar__ID>
+                    <a id=save2__ID class=save_and_back__ID >Save & Back</a> <span class=tab__ID></span>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+<script>
+function F__ID(){
+    //----------------------------------
+    VmInclude:__BASE__/vmiis/Common-Code/grid/form.js
+    VmInclude:__BASE__/vmiis/Common-Code/clinical_trials/participant.js
+    VmInclude:__BASE__/vmiis/Common-Code/style/ease-in-out.js
+    //----------------------------------
+    $('#D__ID').on('load',function(){
+        _init();
+        _field_process();
+        _task_fields=$vm.vm['__ID'].op.grid_to_form_parameters.task_fields;
+        _set_participant_field();
+        react_changes();
+        display_page();
+        custom_field_process();
+    })
+    //----------------------------------
+
+    //----------------------------------
+    var custom_field_process=function(){
+        $('#F__ID div[data-custom=1],tr[data-custom=1]').each(function(){
+            var field=$(this).attr('data-id');
+            switch(field){
+                case "Participant":
+                    $(this).find("input[name='"+field+"']").val(_records[I].Participant);
+                    $(this).find("input[name='"+field+"_uid']").val(_records[I].Participant_uid);
+                break;
+                case "IPAQ_1":
+                    $('#F__ID').find("input[name='"+field+"'][value='"+_records[I][field]+"']").prop('checked', true);
+                    $('#F__ID').find("input[name='"+field+"']").on('click',function(){
+                        _set_value(this.value,_records,I,field);
+                    })
+                break;
+                case "IPAQ_2":
+                case "IPAQ_3H":
+                case "IPAQ_3M":
+                case "IPAQ_4":
+                case "IPAQ_5H":
+                case "IPAQ_5M":
+                case "IPAQ_6":
+                case "IPAQ_7H":
+                case "IPAQ_7M":
+                case "IPAQ_8":
+                case "IPAQ_9H":
+                case "IPAQ_9M":
+                case "IPAQ_10":
+                case "IPAQ_11H":
+                case "IPAQ_11M":
+                case "IPAQ_12":
+                case "IPAQ_13H":
+                case "IPAQ_13M":
+                case "IPAQ_14":
+                case "IPAQ_15H":
+                case "IPAQ_15M":
+                case "IPAQ_16":
+                case "IPAQ_17H":
+                case "IPAQ_17M":
+                case "IPAQ_18":
+                case "IPAQ_19H":
+                case "IPAQ_19M":
+                case "IPAQ_20":
+                case "IPAQ_21H":
+                case "IPAQ_21M":
+                case "IPAQ_22":
+                case "IPAQ_23H":
+                case "IPAQ_23M":
+                case "IPAQ_24":
+                case "IPAQ_25H":
+                case "IPAQ_25M":
+                case "IPAQ_26H":
+                case "IPAQ_26M":
+                case "IPAQ_27H":
+                case "IPAQ_27M":
+                    $('#F__ID').find("select[name='"+field+"']").val(_records[I][field]);
+                    $('#F__ID').find("select[name='"+field+"']").on('change',function(){
+                        _set_value(this.value,_records,I,field);
+                    })
+            break;
+                case "IPAQ_2C":
+                case "IPAQ_4C":
+                case "IPAQ_6C":
+                case "IPAQ_8C":
+                case "IPAQ_10C":
+                case "IPAQ_12C":
+                case "IPAQ_14C":
+                case "IPAQ_16C":
+                case "IPAQ_18C":
+                case "IPAQ_20C":
+                case "IPAQ_22C":
+                case "IPAQ_24C":
+                if(_records[I][field]=="1" || _records[I][field]=="True" || _records[I][field]=="on" )
+                    $('#F__ID').find("input[name='"+field+"']").prop('checked', true);
+                    $('#F__ID').find("input[name='"+field+"']").on('click',function(){
+                        if($(this).prop("checked") == true)   _set_value("1",_records,I,field);
+                        else                                  _set_value("0",_records,I,field);;
+                    })
+            break;
+
+            }
+        })
+    }
+    //----------------------------------
+    //----------------------------------
+    _before_submit_form=function(){
+        if( $('#F__ID').find('input[name=IPAQ_1]:checked').val()===undefined){ $vm.alert('Please answer question 1'); return false; }
+        if( $('#F__ID').find('input[name=IPAQ_1]:checked').val()==='1'){
+            if( $('#F__ID').find('select[name=IPAQ_2]').val()===null && $('#F__ID').find('input[name=IPAQ_2C]').is(":checked")==false ){ $vm.alert('Please answer question 2'); return false; }
+            if( $('#F__ID').find('select[name=IPAQ_2]').val()!==null && $('#F__ID').find('input[name=IPAQ_2C]').is(":checked")==false ){
+                if( $('#F__ID').find('select[name=IPAQ_3H]').val()===null){ $vm.alert('Please answer question 3 - ours'); return false; }
+                if( $('#F__ID').find('select[name=IPAQ_3M]').val()===null){ $vm.alert('Please answer question 3 - minutes'); return false; }
+            }
+            if( $('#F__ID').find('select[name=IPAQ_4]').val()===null && $('#F__ID').find('input[name=IPAQ_4C]').is(":checked")==false ){ $vm.alert('Please answer question 4'); return false; }
+            if( $('#F__ID').find('select[name=IPAQ_4]').val()!==null && $('#F__ID').find('input[name=IPAQ_4C]').is(":checked")==false ){
+                if( $('#F__ID').find('select[name=IPAQ_5H]').val()===null){ $vm.alert('Please answer question 5 - hours'); return false; }
+                if( $('#F__ID').find('select[name=IPAQ_5M]').val()===null){ $vm.alert('Please answer question 5 - minutes'); return false; }
+            }
+            if( $('#F__ID').find('select[name=IPAQ_6]').val()===null && $('#F__ID').find('input[name=IPAQ_6C]').is(":checked")==false ){ $vm.alert('Please answer question 6'); return false; }
+            if( $('#F__ID').find('select[name=IPAQ_6]').val()!==null && $('#F__ID').find('input[name=IPAQ_6C]').is(":checked")==false ){
+                if( $('#F__ID').find('select[name=IPAQ_7H]').val()===null){ $vm.alert('Please answer question 7 - hours'); return false; }
+                if( $('#F__ID').find('select[name=IPAQ_7M]').val()===null){ $vm.alert('Please answer question 7 - minutes'); return false; }
+            }
+        }
+        if( $('#F__ID').find('select[name=IPAQ_8]').val()===null && $('#F__ID').find('input[name=IPAQ_8C]').is(":checked")==false ){ $vm.alert('Please answer question 8'); return false; }
+        if( $('#F__ID').find('select[name=IPAQ_8]').val()!==null && $('#F__ID').find('input[name=IPAQ_8C]').is(":checked")==false ){
+            if( $('#F__ID').find('select[name=IPAQ_9H]').val()===null){ $vm.alert('Please answer question 9 - hours'); return false; }
+            if( $('#F__ID').find('select[name=IPAQ_9M]').val()===null){ $vm.alert('Please answer question 9 - minutes'); return false; }
+        }
+        if( $('#F__ID').find('select[name=IPAQ_10]').val()===null && $('#F__ID').find('input[name=IPAQ_10C]').is(":checked")==false ){ $vm.alert('Please answer question 10'); return false; }
+        if( $('#F__ID').find('select[name=IPAQ_10]').val()!==null && $('#F__ID').find('input[name=IPAQ_10C]').is(":checked")==false ){
+            if( $('#F__ID').find('select[name=IPAQ_11H]').val()===null){ $vm.alert('Please answer question 11 - hours'); return false; }
+            if( $('#F__ID').find('select[name=IPAQ_11M]').val()===null){ $vm.alert('Please answer question 11 - minutes'); return false; }
+        }
+        if( $('#F__ID').find('select[name=IPAQ_12]').val()===null && $('#F__ID').find('input[name=IPAQ_12C]').is(":checked")==false ){ $vm.alert('Please answer question 10'); return false; }
+        if( $('#F__ID').find('select[name=IPAQ_12]').val()!==null && $('#F__ID').find('input[name=IPAQ_12C]').is(":checked")==false ){
+            if( $('#F__ID').find('select[name=IPAQ_13H]').val()===null){ $vm.alert('Please answer question 13 - hours'); return false; }
+            if( $('#F__ID').find('select[name=IPAQ_13M]').val()===null){ $vm.alert('Please answer question 13 - minutes'); return false; }
+        }
+        if( $('#F__ID').find('select[name=IPAQ_14]').val()===null && $('#F__ID').find('input[name=IPAQ_14C]').is(":checked")==false ){ $vm.alert('Please answer question 10'); return false; }
+        if( $('#F__ID').find('select[name=IPAQ_14]').val()!==null && $('#F__ID').find('input[name=IPAQ_14C]').is(":checked")==false ){
+            if( $('#F__ID').find('select[name=IPAQ_15H]').val()===null){ $vm.alert('Please answer question 15 - hours'); return false; }
+            if( $('#F__ID').find('select[name=IPAQ_15M]').val()===null){ $vm.alert('Please answer question 15 - minutes'); return false; }
+        }
+        if( $('#F__ID').find('select[name=IPAQ_16]').val()===null && $('#F__ID').find('input[name=IPAQ_16C]').is(":checked")==false ){ $vm.alert('Please answer question 10'); return false; }
+        if( $('#F__ID').find('select[name=IPAQ_16]').val()!==null && $('#F__ID').find('input[name=IPAQ_16C]').is(":checked")==false ){
+            if( $('#F__ID').find('select[name=IPAQ_17H]').val()===null){ $vm.alert('Please answer question 17 - hours'); return false; }
+            if( $('#F__ID').find('select[name=IPAQ_17M]').val()===null){ $vm.alert('Please answer question 17 - minutes'); return false; }
+        }
+        if( $('#F__ID').find('select[name=IPAQ_18]').val()===null && $('#F__ID').find('input[name=IPAQ_18C]').is(":checked")==false ){ $vm.alert('Please answer question 10'); return false; }
+        if( $('#F__ID').find('select[name=IPAQ_18]').val()!==null && $('#F__ID').find('input[name=IPAQ_18C]').is(":checked")==false ){
+            if( $('#F__ID').find('select[name=IPAQ_19H]').val()===null){ $vm.alert('Please answer question 19 - hours'); return false; }
+            if( $('#F__ID').find('select[name=IPAQ_19M]').val()===null){ $vm.alert('Please answer question 19 - minutes'); return false; }
+        }
+        if( $('#F__ID').find('select[name=IPAQ_20]').val()===null && $('#F__ID').find('input[name=IPAQ_20C]').is(":checked")==false ){ $vm.alert('Please answer question 10'); return false; }
+        if( $('#F__ID').find('select[name=IPAQ_20]').val()!==null && $('#F__ID').find('input[name=IPAQ_20C]').is(":checked")==false ){
+            if( $('#F__ID').find('select[name=IPAQ_21H]').val()===null){ $vm.alert('Please answer question 21 - hours'); return false; }
+            if( $('#F__ID').find('select[name=IPAQ_21M]').val()===null){ $vm.alert('Please answer question 21 - minutes'); return false; }
+        }
+        if( $('#F__ID').find('select[name=IPAQ_22]').val()===null && $('#F__ID').find('input[name=IPAQ_22C]').is(":checked")==false ){ $vm.alert('Please answer question 10'); return false; }
+        if( $('#F__ID').find('select[name=IPAQ_22]').val()!==null && $('#F__ID').find('input[name=IPAQ_22C]').is(":checked")==false ){
+            if( $('#F__ID').find('select[name=IPAQ_23H]').val()===null){ $vm.alert('Please answer question 23 - hours'); return false; }
+            if( $('#F__ID').find('select[name=IPAQ_23M]').val()===null){ $vm.alert('Please answer question 23 - minutes'); return false; }
+        }
+        if( $('#F__ID').find('select[name=IPAQ_24]').val()===null && $('#F__ID').find('input[name=IPAQ_24C]').is(":checked")==false ){ $vm.alert('Please answer question 10'); return false; }
+        if( $('#F__ID').find('select[name=IPAQ_24]').val()!==null && $('#F__ID').find('input[name=IPAQ_24C]').is(":checked")==false ){
+            if( $('#F__ID').find('select[name=IPAQ_25H]').val()===null){ $vm.alert('Please answer question 25 - hours'); return false; }
+            if( $('#F__ID').find('select[name=IPAQ_25M]').val()===null){ $vm.alert('Please answer question 25 - minutes'); return false; }
+        }
+        if( $('#F__ID').find('select[name=IPAQ_26H]').val()===null){ $vm.alert('Please answer question 26 - hours'); return false; }
+        if( $('#F__ID').find('select[name=IPAQ_26M]').val()===null){ $vm.alert('Please answer question 26 - minutes'); return false; }
+        if( $('#F__ID').find('select[name=IPAQ_27H]').val()===null){ $vm.alert('Please answer question 27 - hours'); return false; }
+        if( $('#F__ID').find('select[name=IPAQ_27M]').val()===null){ $vm.alert('Please answer question 27 - minutes'); return false; }
+
+    }
+    //----------------------------------
+    var display_page=function(){
+        var vipac_1=$('#F__ID').find('input[name=IPAQ_1]:checked').val();
+        if (vipac_1=='1' || vipac_1==undefined) $('#Q2__ID').show();
+        else $('#Q2__ID').hide();
+        var vipac_1=$('#F__ID').find('input[name=IPAQ_1]:checked').val();
+        if (vipac_1=='1' || vipac_1==undefined) $('#Q2__ID').show();
+        else $('#Q2__ID').hide();
+        var check=$('#F__ID').find('input[name=IPAQ_2C]').is(":checked");
+        if(check == true){$('#Q3__ID').hide();$('#F__ID').find('select[name=IPAQ_2]').val('')} else {$('#Q3__ID').show();}
+        check=$('#F__ID').find('input[name=IPAQ_2C]').is(":checked");
+        if(check == true){$('#Q3__ID').hide();$('#F__ID').find('select[name=IPAQ_2]').val('')} else {$('#Q3__ID').show();}
+        check=$('#F__ID').find('input[name=IPAQ_4C]').is(":checked");
+        if(check == true){$('#Q5__ID').hide();$('#F__ID').find('select[name=IPAQ_4]').val('')} else {$('#Q5__ID').show();}
+        check=$('#F__ID').find('input[name=IPAQ_6C]').is(":checked");
+        if(check == true){$('#Q7__ID').hide();$('#F__ID').find('select[name=IPAQ_6]').val('')} else {$('#Q7__ID').show();}
+        check=$('#F__ID').find('input[name=IPAQ_8C]').is(":checked");
+        if(check == true){$('#Q9__ID').hide();$('#F__ID').find('select[name=IPAQ_8]').val('')} else {$('#Q9__ID').show();}
+        check=$('#F__ID').find('input[name=IPAQ_10C]').is(":checked");
+        if(check == true){$('#Q11__ID').hide();$('#F__ID').find('select[name=IPAQ_10]').val('')} else {$('#Q11__ID').show();}
+        check=$('#F__ID').find('input[name=IPAQ_12C]').is(":checked");
+        if(check == true){$('#Q13__ID').hide();$('#F__ID').find('select[name=IPAQ_12]').val('')} else {$('#Q13__ID').show();}
+        check=$('#F__ID').find('input[name=IPAQ_14C]').is(":checked");
+        if(check == true){$('#Q15__ID').hide();$('#F__ID').find('select[name=IPAQ_14]').val('')} else {$('#Q15__ID').show();}
+        check=$('#F__ID').find('input[name=IPAQ_16C]').is(":checked");
+        if(check == true){$('#Q17__ID').hide();$('#F__ID').find('select[name=IPAQ_16]').val('')} else {$('#Q17__ID').show();}
+        check=$('#F__ID').find('input[name=IPAQ_18C]').is(":checked");
+        if(check == true){$('#Q19__ID').hide();$('#F__ID').find('select[name=IPAQ_18]').val('')} else {$('#Q19__ID').show();}
+        check=$('#F__ID').find('input[name=IPAQ_20C]').is(":checked");
+        if(check == true){$('#Q21__ID').hide();$('#F__ID').find('select[name=IPAQ_20]').val('')} else {$('#Q21__ID').show();}
+        check=$('#F__ID').find('input[name=IPAQ_22C]').is(":checked");
+        if(check == true){$('#Q23__ID').hide();$('#F__ID').find('select[name=IPAQ_22]').val('')} else {$('#Q23__ID').show();}
+        check=$('#F__ID').find('input[name=IPAQ_24C]').is(":checked");
+        if(check == true){$('#Q25__ID').hide();$('#F__ID').find('select[name=IPAQ_24]').val('')} else {$('#Q25__ID').show();}
+    };
+    var react_changes=function(){
+        $('#F__ID').find('input[name=IPAQ_1]').change(function() {
+            var vipac_1=$('#F__ID').find('input[name=IPAQ_1]:checked').val();
+            if (vipac_1=='1' || vipac_1==undefined) $('#Q2__ID').show();
+            else $('#Q2__ID').hide();
+        });
+        $('#F__ID').find('input[name=IPAQ_2C]').click(function() {
+            var check=$('#F__ID').find('input[name=IPAQ_2C]').is(":checked");
+            if(check == true){$('#Q3__ID').hide();$('#F__ID').find('select[name=IPAQ_2]').val('')} else {$('#Q3__ID').show();}
+        });
+        $('#F__ID').find('input[name=IPAQ_4C]').click(function() {
+            var check=$('#F__ID').find('input[name=IPAQ_4C]').is(":checked");
+            if(check == true){$('#Q5__ID').hide();$('#F__ID').find('select[name=IPAQ_4]').val('')} else {$('#Q5__ID').show();}
+        });
+        $('#F__ID').find('input[name=IPAQ_6C]').click(function() {
+            var check=$('#F__ID').find('input[name=IPAQ_6C]').is(":checked");
+            if(check == true){$('#Q7__ID').hide();$('#F__ID').find('select[name=IPAQ_6]').val('')} else {$('#Q7__ID').show();}
+        });
+        $('#F__ID').find('input[name=IPAQ_8C]').click(function() {
+            var check=$('#F__ID').find('input[name=IPAQ_8C]').is(":checked");
+            if(check == true){$('#Q9__ID').hide();$('#F__ID').find('select[name=IPAQ_8]').val('')} else {$('#Q9__ID').show();}
+        });
+        $('#F__ID').find('input[name=IPAQ_10C]').click(function() {
+            var check=$('#F__ID').find('input[name=IPAQ_10C]').is(":checked");
+            if(check == true){$('#Q11__ID').hide();$('#F__ID').find('select[name=IPAQ_10]').val('')} else {$('#Q11__ID').show();}
+        });
+        $('#F__ID').find('input[name=IPAQ_12C]').click(function() {
+            var check=$('#F__ID').find('input[name=IPAQ_12C]').is(":checked");
+            if(check == true){$('#Q13__ID').hide();$('#F__ID').find('select[name=IPAQ_12]').val('')} else {$('#Q13__ID').show();}
+        });
+        $('#F__ID').find('input[name=IPAQ_14C]').click(function() {
+            var check=$('#F__ID').find('input[name=IPAQ_14C]').is(":checked");
+            if(check == true){$('#Q15__ID').hide();$('#F__ID').find('select[name=IPAQ_14]').val('')} else {$('#Q15__ID').show();}
+        });
+        $('#F__ID').find('input[name=IPAQ_16C]').click(function() {
+            var check=$('#F__ID').find('input[name=IPAQ_16C]').is(":checked");
+            if(check == true){$('#Q17__ID').hide();$('#F__ID').find('select[name=IPAQ_16]').val('')} else {$('#Q17__ID').show();}
+        });
+        $('#F__ID').find('input[name=IPAQ_18C]').click(function() {
+            var check=$('#F__ID').find('input[name=IPAQ_18C]').is(":checked");
+            if(check == true){$('#Q19__ID').hide();$('#F__ID').find('select[name=IPAQ_18]').val('')} else {$('#Q19__ID').show();}
+        });
+        $('#F__ID').find('input[name=IPAQ_20C]').click(function() {
+            var check=$('#F__ID').find('input[name=IPAQ_20C]').is(":checked");
+            if(check == true){$('#Q21__ID').hide();$('#F__ID').find('select[name=IPAQ_20]').val('')} else {$('#Q21__ID').show();}
+        });
+        $('#F__ID').find('input[name=IPAQ_22C]').click(function() {
+            var check=$('#F__ID').find('input[name=IPAQ_22C]').is(":checked");
+            if(check == true){$('#Q23__ID').hide();$('#F__ID').find('select[name=IPAQ_22]').val('')} else {$('#Q23__ID').show();}
+        });
+        $('#F__ID').find('input[name=IPAQ_24C]').click(function() {
+            var check=$('#F__ID').find('input[name=IPAQ_24C]').is(":checked");
+            if(check == true){$('#Q25__ID').hide();$('#F__ID').find('select[name=IPAQ_24]').val('')} else {$('#Q25__ID').show();}
+        });
+    }
+
+}
+</script>
+<style>
+VmInclude:__CURRENT_PATH__/css/w3.css
+VmInclude:__BASE__/vmiis/Common-Code/toolbar/toolbar.css
+VmInclude:__BASE__/vmiis/Common-Code/grid/form.css
+</style>
