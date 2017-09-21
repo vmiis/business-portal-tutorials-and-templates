@@ -1,4 +1,3 @@
 # Client Management
 
-https://vmiis.github.io/client-management/index.html
-![alt tag](https://vmiis.github.io/images/structure2.png)
+https://vmiis.github.io/business-portal-tutorials-and-templates/templates/client-management/index.html

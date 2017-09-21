@@ -3,22 +3,16 @@
 	"parts_path":"https://vmiis.github.io/parts",
 	"image_path":"https://image.datalinkedin.com",
 	"api_path_development":"https://cbs.wappsystem.com/dev/",
-	"api_path_production":"https://cbs.wappsystem.com/pro/",
+	"api_path_production":"https://cbs.wappsystem.com/dev/",
 	"modules":
 	{
 		"home":
 		{
-			"url":"https://vmiis.github.io/modules/home/home.html"
+			"url":"/modules/static/home.html"
 		},
-		"about":
+		"portal":
 		{
-			"url":"https://vmiis.github.io/modules/datalinkedin/panel.html"
-		}
-	},
-	"panels":
-	{
-		"main":{
-			"config_url":"/configurations/main-panel.json"
+			"url":"/configurations/main-panel.json"
 		}
 	}
 }
