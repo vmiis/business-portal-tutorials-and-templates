@@ -1,0 +1,53 @@
+VmInclude:/modules/layout/top-right-corner.html
+VmInclude:/modules/layout/header.html
+VmInclude:/modules/layout/content-container.html
+VmInclude:/modules/layout/footer.html
+<script main-layout-js>
+	function F__ID(){
+		//------------------------------------
+		var set_header=function(){
+			var header_height=$('#header__ID').outerHeight(); $vm.header_height=header_height;
+			var footer_height=$('#footer__ID').outerHeight();
+			$vm.min_height=($(window).height()-header_height-footer_height)+'px';
+			$('#content_container__ID').css({'height':$vm.min_height});
+			$('#content_container__ID').css({'top':header_height+'px'})
+			console.log('window:'+$(window).height()+', header:'+header_height+', footer:'+footer_height);
+		}
+		setTimeout(function (){	set_header();},10);	setTimeout(function (){	set_header();},2000);
+		//------------------------------------
+		var show_top_right_corner=function(){
+			if($vm.server=='development') $('#database_d__ID').show();
+			else if($vm.server=='production') $('#database_p__ID').show();
+		}
+		show_top_right_corner();
+		//========================================
+		var $image1 = $("<img>");
+		$image1.on('load',(function(){ $('body').css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $('body').css("background-size", "cover");  }));
+		$image1.attr("src", "__HOST__/images/background.jpg");
+		//========================================
+		//load first module
+		var module='first';
+		var url=$vm.app_config.modules[module].url;
+		url+='?_v='+$vm.version+$vm.reload;
+		url=$vm.url(url); if(url[0]=='/') url=$vm.hosting_path+url;
+		//---------------------------
+		$vm.module_list[module]={url:url,var:{}}
+		//---------------------------
+		$vm.load_module_by_name(module,$vm.root_layout_content_slot,{
+			name:module,
+			mobj:$vm.vm['__ID'],
+			record:{UID:0},
+			sys:{UID:0,}
+		})
+		//========================================
+	}
+</script>
+<style main-layout-css>
+	html,body{
+		height:100%;
+	}
+	@keyframes vm_module_fadein {
+		from { opacity:0; }
+		to {opacity:1;}
+	}
+</style>

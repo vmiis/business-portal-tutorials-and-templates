@@ -1,0 +1,22 @@
+{
+	"library_path":"https://cbs.wappsystem.com/dev/github",
+	"parts_path":"https://vmiis.github.io/parts",
+	"image_path":"https://image.datalinkedin.com",
+	"api_path_development":"https://cbs.wappsystem.com/dev/",
+	"api_path_production":"https://cbs.wappsystem.com/dev/",
+	"modules":
+	{
+		"first":
+		{
+			"url":"/modules/static/first.html"
+		},
+		"second":
+		{
+			"url":"/modules/static/second.html"
+		},
+		"third":
+		{
+			"url":"/modules/static/third.html"
+		}
+	}
+}

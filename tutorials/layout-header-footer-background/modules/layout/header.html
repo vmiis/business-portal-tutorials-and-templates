@@ -1,0 +1,79 @@
+<div header>
+	<div id=header__ID top-navigation class="w3-top">
+		<div id=small__ID class='w3-hide-large'><a onclick="vm_nav_click_process('home')"><b>Business Portal</b></a></div>
+		<div id=large__ID class='w3-hide-small w3-hide-medium'><a onclick="vm_nav_click_process('home')"><b>Business Portal</b></a></div>
+
+		<a id=small_btn__ID href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+
+		<div id=topbar__ID class="w3-right w3-hide-small w3-hide-medium">
+			<a onclick="vm_nav_click_process('home')" class="w3-bar-item w3-button"><i class="fa fa-home"></i> Home</a>
+			<a onclick="vm_nav_click_process('portal')" class="w3-bar-item w3-button"><i class="fa fa-th"></i> Portal</a>
+			<a name=signinout onclick="vm_nav_click_process('signinout')" class="w3-bar-item w3-button"><i class="fa fa-user"></i> Sign In</a>
+		</div>
+	</div>
+	<div id="sidebar__ID" side-navigation class="w3-sidebar w3-bar-block w3-black w3-card-2 w3-animate-left w3-hide-large" style="display:none">
+		<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+		<a onclick="vm_nav_click_process('home');w3_close()" class="w3-bar-item w3-button"><i class="fa fa-home"></i> Home</a>
+		<a onclick="vm_nav_click_process('portal');w3_close()" class="w3-bar-item w3-button"><i class="fa fa-th"></i> Portal</a>
+		<a name=signinout onclick="vm_nav_click_process('signinout');w3_close()" class="w3-bar-item w3-button"><i class="fa fa-user"></i> Sign In</a>
+	</div>
+	<script navigation-processing>
+		//------------------------------------
+		setTimeout(function (){
+			var header_height=$('#header__ID').outerHeight();
+			$('#sidebar__ID').css({'margin-top':header_height+'px'});
+		},1000);
+		//------------------------------------
+		var mySidebar = document.getElementById("sidebar__ID");
+		function w3_open() {
+			if (mySidebar.style.display === 'block') mySidebar.style.display = 'none';
+			else 									 mySidebar.style.display = 'block';
+		}
+		function w3_close() {
+			mySidebar.style.display = "none";
+		}
+		//-----------------------------------------
+		var vm_nav_click_process=function(name){
+			alert(name)
+		}
+		//-----------------------------------------
+	</script>
+	<style>
+		#header__ID{
+			background: rgba(128,128,128,0.5);
+		}
+		#header__ID a{
+		  	cursor:pointer;
+		}
+		#large__ID{
+			font: 180% Arial;
+			color:#fff;
+			display: inline-block;
+			margin: 20px 0 5px 10px;
+			padding:3px 0 0 20px;
+		}
+		#small__ID{
+			font: 180% Arial;
+			color:#fff;
+			display: inline-block;
+			margin: 10px 0 5px 10px;
+			padding:3px 0 0 20px;
+		}
+		#large__ID a:hover,#small__ID a:hover{
+			color:#fff;
+			text-decoration:none;
+		}
+		#small_btn__ID{
+			color:#fff;
+			font-size:26px;
+		}
+		#topbar__ID{
+			font-family: Helvetica,Arial,sans-serif;
+			color:#fff;
+			padding-top:35px;
+			padding-right:250px;'
+		}
+		@media screen and (max-width:768px){
+		}
+	</style>
+</div>
