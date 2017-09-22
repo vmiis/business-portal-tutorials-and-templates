@@ -1,4 +1,3 @@
 # Flat
 
-https://woolcock-imr.github.io/flat/index.html  
-https://woolcock-imr.github.io/flat/index.html?database=development  
+https://vmiis.github.io/business-portal-tutorials-and-templates/templates/flat/index.html?database=development  
