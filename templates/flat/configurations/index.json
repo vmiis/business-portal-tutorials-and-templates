@@ -12,7 +12,7 @@
 		},
 		"portal":
 		{
-			"url":"/modules/dynamic/main.html"
+			"url":"/modules/dynamic/flat/panels/main.html"
 		}
 	}
 }

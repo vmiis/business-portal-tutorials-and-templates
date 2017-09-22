@@ -32,8 +32,8 @@ var main__ID=function(){
     }
     //---------------------------------------------
     //panels
-    L[A+'data_entry_by_staff']=         {table_id:'',var:v,url:B+'/data_entry_by_staff.html'};
-    L[A+'data_entry_by_participant']=   {table_id:'',var:v,url:B+'/data_entry_by_participant.html'};
+    L[A+'data_entry_by_staff']=         {table_id:'',var:v,url:B+'/flat/panels/data_entry_by_staff.html'};
+    L[A+'data_entry_by_participant']=   {table_id:'',var:v,url:B+'/flat/panels/data_entry_by_participant.html'};
     //---------------------------------------------
     //
     L[A+'participant']=                 {table_id:participant_tid,      var:v,  url:B+'/flat/participant.html'};
@@ -47,21 +47,21 @@ var main__ID=function(){
     L[A+'randomised_sleep_query']=       {table_id:'20010891',var:v,url:B+'/query/randomised_sleep_query.html'};
     L[A+'randomised_obesity_query']=       {table_id:'20010892',var:v,url:B+'/query/randomised_obesity_query.html'};
     //---------------------------------------------
-    L[A+'Adverse_Event']=       {table_id:'20009731',var:v,url:T+'/Adverse_Event.html',notes:'Adverse Event'};
+    L[A+'Adverse_Event']=       {table_id:'20009731',var:v,url:T+'/adverse_event.html',notes:'Adverse Event'};
     L[A+'Concom_Medication']=   {table_id:'20009732',var:v,url:T+'/concom_medication.html',notes:'Concomitant Medication'};
     L[A+'File_Notes']=          {table_id:'20009733',var:v,url:T+'/File_Notes.html',notes:'File Notes'};
 
     //Screening
-    L[A+'Screening_Visit_Date']={table_id:'20010827',var:v,url:T+'/Visit_date.html',notes:'Screening Visit Date'};
-    L[A+'Screening_Anthro']=    {table_id:'20009735',var:v,url:T+'/Anthro.html',notes:'Screening Anthropometry'};
+    L[A+'Screening_Visit_Date']={table_id:'20010827',var:v,url:T+'/visit_date.html',notes:'Screening Visit Date'};
+    L[A+'Screening_Anthro']=    {table_id:'20009735',var:v,url:T+'/anthro.html',notes:'Screening Anthropometry'};
     L[A+'Screening_ESS']=       {table_id:'20010831',var:v,url:T+'/epworth_sleepiness_scale.html',notes:'Screening Epworth Sleepiness Scale (ESS)',form_module:A+'Screening_ESS_QUEST',task:'Screening Epworth Sleepiness Scale (ESS)'};
     L[A+'Screening_ESS_QUEST']= {table_id:'20010831',var:v,url:T+'/epworth_sleepiness_scale.form.html'};
 
     //Baseline
-    L[A+'Baseline_Visit_Date']= {table_id:'20010832',var:v,url:T+'/Visit_date.html',notes:'Baseline Visit Date'};
-    //L[A+'Baseline_MINMOD']={table_id:'XXXXXXXX',var:v,url:T+'/MINMOD.html',notes:'Baseline MINMOD'};
-    L[A+'Baseline_Anthro']=     {table_id:'20010833',var:v,url:T+'/Anthro.html',notes:'Baseline Anthropometry'};
-    L[A+'Baseline_DXABIS']={table_id:'20010834',var:v,url:T+'/DXABIS.html',notes:'Baseline DXABIS'};
+    L[A+'Baseline_Visit_Date']= {table_id:'20010832',var:v,url:T+'/visit_date.html',notes:'Baseline Visit Date'};
+    //L[A+'Baseline_MINMOD']={table_id:'XXXXXXXX',var:v,url:T+'/minmod.html',notes:'Baseline MINMOD'};
+    L[A+'Baseline_Anthro']=     {table_id:'20010833',var:v,url:T+'/anthro.html',notes:'Baseline Anthropometry'};
+    L[A+'Baseline_DXABIS']={table_id:'20010834',var:v,url:T+'/dxabis.html',notes:'Baseline DXABIS'};
     L[A+'Baseline_bloods']={table_id:'20010835',var:v,url:T+'/bloods.html',notes:'Baseline bloods'};
     L[A+'Baseline_ESS']=        {table_id:'20010836',var:v,url:T+'/epworth_sleepiness_scale.html',notes:'Baseline Epworth Sleepiness Scale (ESS)',form_module:A+'Baseline_ESS_QUEST',task:'Baseline Epworth Sleepiness Scale (ESS)'};
     L[A+'Baseline_ESS_QUEST']=  {table_id:'20010836',var:v,url:T+'/epworth_sleepiness_scale.form.html'};
@@ -79,14 +79,14 @@ var main__ID=function(){
     L[A+'Baseline_TFEQ_FORM']={table_id:'20010842',var:v,url:T+'/three_factor_eating_questionnaire.form.html'};
     L[A+'Baseline_IPAQ']={table_id:'20010843',var:v,url:T+'/international_physical_activity_questionnaire.html',notes:'Baseline IPAQ',form_module:A+'Baseline_IPAQ_FORM',task:'Baseline IPAQ'};
     L[A+'Baseline_IPAQ_FORM']={table_id:'20010843',var:v,url:T+'/international_physical_activity_questionnaire.form.html'};
-    L[A+'Baseline_Scoring_File_Upload']={table_id:'20009742',var:v,url:T+'/File_upload.html',notes:'Baseline Scoring File upload'};
+    L[A+'Baseline_Scoring_File_Upload']={table_id:'20009742',var:v,url:T+'/file_upload.html',notes:'Baseline Scoring File upload'};
 
 //2 Month
-    L[A+'Month_2_Visit_Date']={table_id:'20010847',var:v,url:T+'/Visit_Date.html',notes:'Month 2 Visit Date'};
-    L[A+'Month_2_PSG']={table_id:'20010848',var:v,url:T+'/PSG.html',notes:'Month 2 PSG'};
-    L[A+'Month_2_MINMOD']={table_id:'20010849',var:v,url:T+'/MINMOD.html',notes:'Month 2 MINMOD'};
-    L[A+'Month_2_Anthro']=     {table_id:'20010850',var:v,url:T+'/Anthro.html',notes:'Month 2 Anthropometry'};
-    L[A+'Month_2_DXABIS']={table_id:'20010851',var:v,url:T+'/DXABIS.html',notes:'Month 2 DXABIS'};
+    L[A+'Month_2_Visit_Date']={table_id:'20010847',var:v,url:T+'/visit_date.html',notes:'Month 2 Visit Date'};
+    L[A+'Month_2_PSG']={table_id:'20010848',var:v,url:T+'/psg.html',notes:'Month 2 PSG'};
+    L[A+'Month_2_MINMOD']={table_id:'20010849',var:v,url:T+'/minmod.html',notes:'Month 2 MINMOD'};
+    L[A+'Month_2_Anthro']=     {table_id:'20010850',var:v,url:T+'/anthro.html',notes:'Month 2 Anthropometry'};
+    L[A+'Month_2_DXABIS']={table_id:'20010851',var:v,url:T+'/dxabis.html',notes:'Month 2 DXABIS'};
     L[A+'Month_2_bloods']={table_id:'20010852',var:v,url:T+'/bloods.html',notes:'Month 2 bloods'};
     L[A+'Month_2_ESS']={table_id:'20010853',var:v,url:T+'/epworth_sleepiness_scale.html',notes:'month 2 ESS',form_module:A+'Month_2_ESS_FORM',task:'Month 2 ESS'};
     L[A+'Month_2_ESS_FORM']={table_id:'20010853',var:v,url:T+'/epworth_sleepiness_scale.form.html'};
@@ -106,7 +106,7 @@ var main__ID=function(){
     L[A+'Month_2_IPAQ_FORM']={table_id:'20010860',var:v,url:T+'/international_physical_activity_questionnaire.form.html'};
 
 //9 Month
-    L[A+'Month_9_Visit_Date']={table_id:'20010863',var:v,url:T+'/Visit_Date.html',notes:'Month 9 Visit Date'};
+    L[A+'Month_9_Visit_Date']={table_id:'20010863',var:v,url:T+'/visit_date.html',notes:'Month 9 Visit Date'};
     L[A+'Month_9_Anthro']={table_id:'20010864',var:v,url:T+'/anthro.html',notes:'Month 9 anthropometry'};
     L[A+'Month_9_ESS']={table_id:'20010865',var:v,url:T+'/epworth_sleepiness_scale.html',notes:'month 9 ESS',form_module:A+'Month_9_ESS_FORM',task:'Month 9 ESS'};
     L[A+'Month_9_ESS_FORM']={table_id:'20010865',var:v,url:T+'/epworth_sleepiness_scale.form.html'};
@@ -126,11 +126,11 @@ var main__ID=function(){
     L[A+'Month_9_IPAQ_FORM']={table_id:'20010872',var:v,url:T+'/international_physical_activity_questionnaire.form.html'};
 
 //12 Month
-    L[A+'Month_12_Visit_Date']={table_id:'20010873',var:v,url:T+'/Visit_Date.html',notes:'Month 12 Visit Date'};
-    L[A+'Month_12_PSG']={table_id:'20010874',var:v,url:T+'/PSG.html',notes:'Month 12 PSG'};
-    L[A+'Month_12_MINMOD']={table_id:'20010875',var:v,url:T+'/MINMOD.html',notes:'Month 12 MINMOD'};
+    L[A+'Month_12_Visit_Date']={table_id:'20010873',var:v,url:T+'/visit_date.html',notes:'Month 12 Visit Date'};
+    L[A+'Month_12_PSG']={table_id:'20010874',var:v,url:T+'/psg.html',notes:'Month 12 PSG'};
+    L[A+'Month_12_MINMOD']={table_id:'20010875',var:v,url:T+'/minmod.html',notes:'Month 12 MINMOD'};
     L[A+'Month_12_Anthro']={table_id:'20010876',var:v,url:T+'/anthro.html',notes:'Month 12 anthropometry'};
-    L[A+'Month_12_DXABIS']={table_id:'20010877',var:v,url:T+'/DXABIS.html',notes:'Month 12 DXABIS'};
+    L[A+'Month_12_DXABIS']={table_id:'20010877',var:v,url:T+'/dxabis.html',notes:'Month 12 DXABIS'};
     L[A+'Month_12_bloods']={table_id:'20010878',var:v,url:T+'/bloods.html',notes:'Month 12 bloods'};
     L[A+'Month_12_ESS']={table_id:'20010879',var:v,url:T+'/epworth_sleepiness_scale.html',notes:'month 12 ESS',form_module:A+'Month_12_ESS_FORM',task:'Month 12 ESS'};
     L[A+'Month_12_ESS_FORM']={table_id:'20010879',var:v,url:T+'/epworth_sleepiness_scale.form.html'};
