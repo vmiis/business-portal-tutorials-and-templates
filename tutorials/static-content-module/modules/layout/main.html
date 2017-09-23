@@ -15,33 +15,12 @@ VmInclude:/modules/layout/footer.html
 		}
 		setTimeout(function (){	set_height();},10);	setTimeout(function (){	set_height();},2000);
 		//------------------------------------
-		var show_top_right_corner=function(){
-			if($vm.server=='development') $('#database_d__ID').show();
-			else if($vm.server=='production') $('#database_p__ID').show();
-		}
-		show_top_right_corner();
-		//========================================
+		$vm.nav_load_module('first');
+		//------------------------------------
 		var $image1 = $("<img>");
 		$image1.on('load',(function(){ $('body').css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $('body').css("background-size", "cover");  }));
 		$image1.attr("src", "__HOST__/images/background.jpg");
-		//========================================
-
-		//load first module
-		var module='first';
-		var url=$vm.app_config.modules[module].url;
-		url+='?_v='+$vm.version+$vm.reload;
-		url=$vm.url(url); if(url[0]=='/') url=$vm.hosting_path+url;
-		//---------------------------
-		$vm.module_list[module]={url:url,var:{}}
-		//---------------------------
-		$vm.load_module_by_name(module,$vm.root_layout_content_slot,{
-			name:module,
-			mobj:$vm.vm['__ID'],
-			record:{UID:0},
-			sys:{UID:0,}
-		})
-		
-		//========================================
+		//------------------------------------
 	}
 </script>
 <style main-layout-css>

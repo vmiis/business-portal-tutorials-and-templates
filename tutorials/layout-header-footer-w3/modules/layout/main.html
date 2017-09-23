@@ -14,12 +14,6 @@ VmInclude:/modules/layout/footer.html
 			console.log('window:'+$(window).height()+', header:'+header_height+', footer:'+footer_height);
 		},1000);
 		//------------------------------------
-		var show_top_right_corner=function(){
-			if($vm.server=='development') $('#database_d__ID').show();
-			else if($vm.server=='production') $('#database_p__ID').show();
-		}
-		show_top_right_corner();
-		//========================================
 	}
 </script>
 <style main-layout-css>
