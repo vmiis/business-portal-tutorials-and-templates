@@ -1,0 +1,104 @@
+{
+	"name":"Staff Management",
+	"url":"/modules/dynamic/panel.html",
+	"parameters":{
+		"child_configuration_url":"/configurations/portal-child.json"
+	},
+	"panel":
+	{
+		"columns":
+		[
+			{
+				"sections":
+				[
+					{
+						"name":"Staff Info",
+						"modules":
+						[
+							{
+								"module_id":"staff",
+								"name":"Staff",
+								"table_id":"20009675",
+								"url":"/modules/dynamic/hr/staff.html",
+								"counting":"1"
+							},
+							{
+								"module_id":"phone_and_room",
+								"name":"Phone and room number",
+								"table_id":"20009675",
+								"url":"/modules/dynamic/hr/staff_phone_and_room.html"
+							},
+							{
+								"module_id":"private_info",
+								"name":"Private info",
+								"table_id":"20009683",
+								"url":"/modules/dynamic/hr/private_info.html",
+								"counting":"1"
+							},
+							{
+								"module_id":"personal_documents",
+								"name":"Personal documents",
+								"table_id":"20009684",
+								"url":"/modules/dynamic/hr/personal_document.html",
+								"counting":"1"
+							},
+							{
+								"module_id":"emergency_contacts",
+								"name":"Emergency contacts",
+								"table_id":"20009685",
+								"url":"/modules/dynamic/hr/emergency_contact.html",
+								"counting":"1"
+							}
+						]
+					},
+					{
+						"name":"Setup",
+						"modules":
+						[
+							{
+								"module_id":"department",
+								"name":"Departments",
+								"table_id":"20009682",
+								"url":"/modules/dynamic/setup/department.html",
+								"counting":"1"
+							}
+							,{
+								"module_id":"managers",
+								"name":"Managers",
+								"table_id":"20009687",
+								"url":"/modules/dynamic/setup/managers.html",
+								"counting":"1"
+							}
+							,{
+								"module_id":"accountant",
+								"name":"Accountants",
+								"table_id":"20003837",
+								"url":"/modules/dynamic/setup/accountants.html",
+								"counting":"1"
+							}
+						]
+					}
+				]
+			}
+			,{
+				"sections":
+				[
+					{
+						"name":"HR Records",
+						"modules":
+						[
+							{
+								"module_id":"hr_documents",
+								"name":"HR documents",
+								"table_id":"20008385",
+								"url":"/modules/dynamic/hr/hr_document.html",
+								"counting":"1"
+							}
+						]
+					}
+
+				]
+			}
+		]
+	}
+}

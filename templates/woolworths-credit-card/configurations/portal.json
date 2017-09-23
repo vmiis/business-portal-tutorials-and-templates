@@ -1,0 +1,68 @@
+
+{
+	"name":"Woolworths Credit Card",
+	"url":"/modules/dynamic/panel.html",
+	"parameters":{
+	},
+	"panel":
+	{
+		"columns":
+		[
+			{
+				"sections":
+				[
+					{
+						"name":"Woolworths Credit Card",
+						"modules":
+						[
+							{
+								"module_id":"w_transaction_import",
+								"name":"Transaction Import",
+								"table_id":"20010375",
+								"url":"/modules/dynamic/woolworths-credit-card/transaction_import.html",
+								"counting":"1"
+							},
+							{
+								"var":{"record_tid":"20010375"},
+								"module_id":"w_transaction_bi",
+								"name":"Transaction bi",
+								"table_id":"20010376",
+								"url":"/modules/dynamic/woolworths-credit-card/transaction_bi.html",
+								"counting":"1"
+							},
+							{
+							   "module_id" : "bi_processing_details",
+							   "table_id" : "20010376",
+							   "url":"/modules/dynamic/woolworths-credit-card/bi_details.html"
+						    },
+							{
+								"module_id":"w_credit_query",
+								"name":"Credit Query",
+								"table_id":"20010376",
+								"url":"/modules/dynamic/woolworths-credit-card/query_credit.html"
+							},
+							{
+								"module_id":"w_debit_query",
+								"name":"Debit Query",
+								"table_id":"20010376",
+								"url":"/modules/dynamic/woolworths-credit-card/query_debit.html"
+							},
+							{
+								"module_id":"w_credit_chart",
+								"name":"Credit Chart",
+								"table_id":"20010376",
+								"url":"/modules/dynamic/woolworths-credit-card/chart_credit.html"
+							},
+							{
+								"module_id":"w_debit_chart",
+								"name":"Debit Chart",
+								"table_id":"20010376",
+								"url":"/modules/dynamic/woolworths-credit-card/chart_debit.html"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}
