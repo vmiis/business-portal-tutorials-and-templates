@@ -5,7 +5,7 @@ VmInclude:/modules/layout/footer.html
 <script main-layout-js>
 	function F__ID(){
 		//------------------------------------
-		var set_header=function(){
+		var set_height=function(){
 			var header_height=$('#header__ID').outerHeight(); $vm.header_height=header_height;
 			var footer_height=$('#footer__ID').outerHeight();
 			$vm.min_height=($(window).height()-header_height-footer_height)+'px';
@@ -13,7 +13,7 @@ VmInclude:/modules/layout/footer.html
 			$('#content_container__ID').css({'top':header_height+'px'})
 			console.log('window:'+$(window).height()+', header:'+header_height+', footer:'+footer_height);
 		}
-		setTimeout(function (){	set_header();},10);	setTimeout(function (){	set_header();},2000);
+		setTimeout(function (){	set_height();},10);	setTimeout(function (){	set_height();},2000);
 		//------------------------------------
 		var show_top_right_corner=function(){
 			if($vm.server=='development') $('#database_d__ID').show();
@@ -25,6 +25,7 @@ VmInclude:/modules/layout/footer.html
 		$image1.on('load',(function(){ $('body').css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $('body').css("background-size", "cover");  }));
 		$image1.attr("src", "__HOST__/images/background.jpg");
 		//========================================
+
 		//load first module
 		var module='first';
 		var url=$vm.app_config.modules[module].url;
@@ -39,6 +40,7 @@ VmInclude:/modules/layout/footer.html
 			record:{UID:0},
 			sys:{UID:0,}
 		})
+		
 		//========================================
 	}
 </script>
