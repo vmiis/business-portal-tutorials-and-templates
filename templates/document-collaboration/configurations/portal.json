@@ -1,0 +1,47 @@
+{
+	"name":"Document Collaboration",
+	"url":"/modules/dynamic/panel.html",
+	"parameters":{
+	},
+	"panel":
+	{
+		"columns":
+		[
+			{
+				"sections":
+				[
+					{
+						"name" : "Collaboration Topics",
+						"modules" :
+						[
+							{
+							   "module_id" : "topics",
+							   "name" : "Topics",
+							   "table_id" : "20005052",
+							   "url" : "/modules/dynamic/document-collaboration/topic.html"
+							}
+						]
+					},
+					{
+						"name" : "All files and comments",
+						"modules" :
+						[
+							{
+							   "module_id" : "files",
+							   "name" : "Files",
+							   "table_id" : "20005053",
+							   "url" : "/modules/dynamic/document-collaboration/file.html"
+							},
+							{
+							   "module_id" : "comments",
+							   "name" : "Comments",
+							   "table_id" : "20005054",
+							   "url" : "/modules/dynamic/document-collaboration/comments.html"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}
