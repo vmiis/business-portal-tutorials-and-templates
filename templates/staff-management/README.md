@@ -1,3 +1,3 @@
-# Client Management
+# staff Management
 
-https://vmiis.github.io/business-portal-tutorials-and-templates/templates/client-management/index.html
+https://vmiis.github.io/business-portal-tutorials-and-templates/templates/staff-management/index.html

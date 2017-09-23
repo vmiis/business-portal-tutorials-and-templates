@@ -1,0 +1,67 @@
+{
+	"name":"Equipment Booking",
+	"url":"/modules/dynamic/panel.html",
+	"parameters":{
+	},
+	"panel":
+	{
+		"columns":
+		[
+			{
+				"sections":
+				[
+					{
+						"name":"Calendar",
+						"modules":
+						[
+							{
+								"module_id":"monthly",
+								"name":"Equipment booking monthly calendar",
+								"table_id":"20002163",
+								"url":"/modules/dynamic/equipment-booking/monthly.html"
+							},
+							{
+								"module_id":"weekly",
+								"name":"Equipment booking weekly calendar",
+								"table_id":"20002163",
+								"url":"/modules/dynamic/equipment-booking/weekly.html"
+							},
+							{
+								"module_id":"daily",
+								"name":"Equipment booking daily calendar",
+								"table_id":"20002163",
+								"url":"/modules/dynamic/equipment-booking/daily.html"
+							}
+						]
+					}
+					,{
+						"name":"Booking records",
+						"modules":
+						[
+							{
+								"module_id":"booking_record",
+								"name":"Equipment booking records",
+								"table_id":"20002163",
+								"url":"/modules/dynamic/equipment-booking/booking_record.html",
+								"counting":"1"
+							}
+						]
+					}
+					,{
+						"name":"Setup",
+						"modules":
+						[
+							{
+								"module_id":"equipment",
+								"name":"Add/Remove equipments",
+								"table_id":"20002162",
+								"url":"/modules/dynamic/equipment-booking/equipment.html",
+								"counting":"1"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

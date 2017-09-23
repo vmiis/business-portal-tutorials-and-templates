@@ -1,0 +1,67 @@
+{
+	"name":"Car Booking",
+	"url":"/modules/dynamic/panel.html",
+	"parameters":{
+	},
+	"panel":
+	{
+		"columns":
+		[
+			{
+				"sections":
+				[
+					{
+						"name":"Calendar",
+						"modules":
+						[
+							{
+								"module_id":"monthly",
+								"name":"Car booking monthly calendar",
+								"table_id":"20000908",
+								"url":"/modules/dynamic/car-booking/monthly.html"
+							},
+							{
+								"module_id":"weekly",
+								"name":"Car booking weekly calendar",
+								"table_id":"20000908",
+								"url":"/modules/dynamic/car-booking/weekly.html"
+							},
+							{
+								"module_id":"daily",
+								"name":"Car booking daily calendar",
+								"table_id":"20000908",
+								"url":"/modules/dynamic/car-booking/daily.html"
+							}
+						]
+					}
+					,{
+						"name":"Booking records",
+						"modules":
+						[
+							{
+								"module_id":"booking_record",
+								"name":"Car booking records",
+								"table_id":"20000908",
+								"url":"/modules/dynamic/car-booking/booking_record.html",
+								"counting":"1"
+							}
+						]
+					}
+					,{
+						"name":"Setup",
+						"modules":
+						[
+							{
+								"module_id":"car",
+								"name":"Add/Remove cars",
+								"table_id":"20000906",
+								"url":"/modules/dynamic/car-booking/car.html",
+								"counting":"1"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

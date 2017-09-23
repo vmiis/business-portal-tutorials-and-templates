@@ -1,0 +1,104 @@
+<div header>
+	<div id=header__ID top-navigation class="w3-top">
+		<div id=small__ID class='w3-hide-large'><a onclick="$vm.nav_click_process('home')">Business Portal</a></div>
+		<div id=large__ID class="w3-hide-small w3-hide-medium">
+			<a id="logo_label__ID" onclick="$vm.nav_click_process('home')">
+				<span class=h2__ID>Business Portal</span><br>
+				<span class=h3__ID>on-demand cloud based
+				<br>software for business
+				<br>data collaboration</span>
+			</a>
+		</div>
+		<div id=topbar__ID class="w3-right w3-hide-small w3-hide-medium">
+			<a onclick="$vm.nav_click_process('home')" class="w3-bar-item w3-button"><i class="fa fa-home"></i> Home</a>
+			<a onclick="$vm.nav_click_process('portal');" class="w3-bar-item w3-button"><i class="fa fa-th"></i> Portal</a>
+			<a onclick="$vm.nav_click_process('about')" class="w3-bar-item w3-button"><i class="fa fa-info-circle"></i> About</a>
+			<a name=signinout onclick="$vm.nav_click_process('vm_signinout')" class="w3-bar-item w3-button"></a>
+		</div>
+		<a  id=small_btn__ID href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+	</div>
+	<div id="sidebar__ID" side-navigation class="w3-sidebar w3-bar-block w3-black w3-card-2 w3-animate-left w3-hide-large">
+		<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+		<a onclick="$vm.nav_click_process('home');w3_close()" class="w3-bar-item w3-button"><i class="fa fa-home"></i> Home</a>
+		<a onclick="$vm.nav_click_process('portal');w3_close()" class="w3-bar-item w3-button"><i class="fa fa-th"></i> Portal</a>
+		<a onclick="$vm.nav_click_process('about');w3_close()" class="w3-bar-item w3-button"><i class="fa fa-info-circle"></i> About</a>
+		<a name=signinout onclick="$vm.nav_click_process('vm_signinout');w3_close()" class="w3-bar-item w3-button"></a>
+	</div>
+	<script navigation-processing>
+		//-----------------------------------------
+		setTimeout(function (){
+			var header_height=$('#header__ID').outerHeight();
+			$('#sidebar__ID').css({'margin-top':header_height+'px'});
+		},1000);
+		//------------------------------------
+		var sidebar = document.getElementById("sidebar__ID");
+		function w3_open() {
+			if (sidebar.style.display === 'block') sidebar.style.display = 'none';
+			else 								   sidebar.style.display = 'block';
+		}
+		function w3_close() {
+			sidebar.style.display = "none";
+		}
+		//-----------------------------------------
+		if($vm.user=='guest'){
+			$('a[name=signinout]').html('<i class="fa fa-user"></i> Sign In')
+			$('#username__ID').text('');
+		}
+		else{
+			$('a[name=signinout]').html('<i class="fa fa-user"></i> Sign Out')
+			$('#username__ID').text('Signed in as '+ $vm.user);
+		}
+		//---------------------------------------------
+	</script>
+	<style>
+		#header__ID{
+			background: rgba(128,128,128,0.5);
+		}
+		#header__ID a{
+		  	cursor:pointer;
+		}
+		#large__ID{
+			padding-left:90px;
+		}
+		#logo_label__ID{
+			color:#fff;
+			padding-left:10px;
+			float:left;
+		}
+		.h2__ID{
+			font: 180% Arial;
+			display: inline-block;
+			margin: 10px 0 5px 10px;
+		}
+		.h3__ID{
+			font: 90% Arial;
+			display: inline-block;
+			margin: 0 0 8px 10px;
+		}
+		#small__ID{
+			font: 180% Arial;
+			font-weight: bold;
+			color:#fff;
+			display: inline-block;
+			margin: 10px 0 5px 10px;
+			padding:3px 0 0 20px;
+		}
+		#large__ID a:hover,#small__ID a:hover{
+			color:#fff;
+			text-decoration:none;
+		}
+		#small_btn__ID{
+			color:#fff;
+			font-size:26px;
+		}
+		#topbar__ID{
+			font-family: Helvetica,Arial,sans-serif;
+			color:#fff;
+			padding-top:55px;
+			padding-right:250px;
+		}
+		#sidebar__ID{
+			display:none;
+		}
+	</style>
+</div>
