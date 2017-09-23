@@ -137,22 +137,6 @@ function F__ID(){
 			if($vm.module_hosting_path!=undefined) url=$vm.module_hosting_path+url;
 		}
 		var single_record=$vm.module_list[module_id].single_record;
-		var trust=0;
-		if(url.indexOf('http://127.0.0.1')!=-1 || url.indexOf('http://localhost')!=-1){
-			trust=1;
-		}
-		else{
-			for(var i=0;i<$vm.trust_path.length;i++){
-				var len=$vm.trust_path[i].length;
-				if(url.indexOf($vm.trust_path[i])!==-1 && url.substring(0,len)==$vm.trust_path[i]){
-					trust=1;
-				}
-			}
-		}
-		if(trust==0){
-			alert("The url ("+url+") is not trusted")
-			return;
-		}
 		//transfer parent module and record, because this is a panel module
 		var this_mobj  =_mobj.op.mobj;
 		var this_record=_mobj.op.record;
