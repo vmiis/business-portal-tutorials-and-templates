@@ -1,0 +1,29 @@
+{
+	"library_path":"https://cbs.wappsystem.com/dev/github",
+	"parts_path":"https://vmiis.github.io/parts",
+	"image_path":"https://image.datalinkedin.com",
+	"api_path_development":"https://cbs.wappsystem.com/dev/",
+	"api_path_production":"https://cbs.wappsystem.com/dev/",
+	"modules":
+	{
+		"home":
+		{
+			"url":"/modules/static/home.html"
+		},
+		"dropdown-list":
+		{
+			"url":"/modules/dynamic/tutorial-002/dropdown-list.html",
+			"table_id":"20008497"
+		},
+		"radio-button":
+		{
+			"url":"/modules/dynamic/tutorial-002/radio-button.html",
+			"table_id":"20008499"
+		},
+		"checkbox":
+		{
+			"url":"/modules/dynamic/tutorial-002/checkbox.html",
+			"table_id":"20008498"
+		}
+	}
+}

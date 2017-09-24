@@ -7,8 +7,19 @@
         //-------------------------------------
         VmInclude:__PARTS__/grid/grid.v2.js
         //-------------------------------------
-        var fields="First_Name,Last_Name,Mobile,Email";
+		var fields="First_Name,Last_Name,Sex";
         _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+				case 'Sex':
+                    var html='<input type="radio" name="Sex" value="Male"> Male';
+                    html+=' <input type="radio" name="Sex" value="Female"> Female';
+                    html+=' <input type="radio" name="Sex" value="other">Other';
+                    VmInclude:__PARTS__/grid/field_radio_button.js
+                    break;
+            }
+        }
         //-------------------------------------
         $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
         //-------------------------------------
