@@ -15,6 +15,15 @@ VmInclude:/modules/layout/footer.html
 		}
 		setTimeout(function (){	set_height();},10);	setTimeout(function (){	set_height();},2000);
 		//------------------------------------
+		window.onmessage=function(e){
+		    if(e.data.username!=undefined && e.data.user_id!=undefined){
+		        $vm.user=e.data.username;
+		        $vm.user_id=e.data.user_id;
+		        $VmAPI.set_token(e.data.token,e.data.api_url,e.data.username,e.data.user_id,e.data.nickname);
+		        location.reload(true);
+		    }
+		};
+		//-----------------------------------------
 		$vm.nav_load_module('home');
 		//------------------------------------
 		var $image1 = $("<img>");

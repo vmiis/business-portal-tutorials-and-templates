@@ -8,26 +8,28 @@
 		<div id=topbar__ID class="w3-right w3-hide-small w3-hide-medium">
 			<a onclick="$vm.nav_click_process('home')" class="w3-bar-item w3-button"><i class="fa fa-home"></i> Home</a>
 			<div class="w3-dropdown-hover">
-		      <button class="w3-padding-large w3-button">Data Fields <i class="fa fa-caret-down"></i></button>
+		      <button class="w3-button"><i class="fa fa-th"></i> Data Fields <i class="fa fa-caret-down"></i></button>
 		      <div class="w3-dropdown-content w3-bar-block w3-card-4">
 		        <a onclick="$vm.nav_click_process('dropdown-list')" class="w3-bar-item w3-button">Dropdown List</a>
 		        <a onclick="$vm.nav_click_process('radio-button')" class="w3-bar-item w3-button">Radio Button</a>
 		        <a onclick="$vm.nav_click_process('checkbox')" class="w3-bar-item w3-button">Check Box</a>
 		      </div>
 		    </div>
+			<a name=signinout onclick="$vm.nav_click_process('vm_signinout')" class="w3-bar-item w3-button"></a>
 		</div>
 	</div>
 	<div id="sidebar__ID" side-navigation class="w3-sidebar w3-bar-block w3-black w3-card-2 w3-animate-left w3-hide-large">
 		<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
 		<a onclick="$vm.nav_click_process('home');w3_close()" class="w3-bar-item w3-button"><i class="fa fa-home"></i> Home</a>
 		<div class="w3-dropdown-hover">
-		  <button class="w3-padding-large w3-button">Data Fields <i class="fa fa-caret-down"></i></button>
+		  <button class="w3-button"><i class="fa fa-th"></i> Data Fields <i class="fa fa-caret-down"></i></button>
 		  <div class="w3-dropdown-content w3-bar-block w3-card-4">
 			  <a onclick="$vm.nav_click_process('dropdown-list');w3_close()" class="w3-bar-item w3-button">Dropdown List</a>
 			  <a onclick="$vm.nav_click_process('radio-button');w3_close()" class="w3-bar-item w3-button">Radio Button</a>
 			  <a onclick="$vm.nav_click_process('checkbox');w3_close()" class="w3-bar-item w3-button">Check Box</a>
 		  </div>
 		</div>
+		<a name=signinout onclick="$vm.nav_click_process('vm_signinout');w3_close()" class="w3-bar-item w3-button"></a>
 	</div>
 	<script navigation-processing>
 		//------------------------------------
@@ -45,6 +47,15 @@
 			sidebar.style.display = "none";
 		}
 		//-----------------------------------------
+		if($vm.user=='guest'){
+			$('a[name=signinout]').html('<i class="fa fa-user"></i> Sign In')
+			$('#username__ID').text('');
+		}
+		else{
+			$('a[name=signinout]').html('<i class="fa fa-user"></i> Sign Out')
+			$('#username__ID').text('Signed in as '+ $vm.user);
+		}
+		//---------------------------------------------
 	</script>
 	<style>
 		#header__ID{
