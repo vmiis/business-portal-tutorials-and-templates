@@ -1,0 +1,27 @@
+<section>
+    VmInclude:__PARTS__/grid/grid.html
+	Alt+double click to see the source code of this module
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__PARTS__/grid/grid.v2.js
+        //-------------------------------------
+		var fields="First_Name,Last_Name,Favorite_Color";
+        _fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+				case 'Favorite_Color':
+                    VmInclude:__PARTS__/grid/field_color.js
+                    break;
+            }
+        }
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__PARTS__/grid/grid.css
+</style>

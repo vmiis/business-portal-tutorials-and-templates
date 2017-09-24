@@ -1,3 +1,3 @@
-# static content module
+# data field
 
-https://vmiis.github.io/business-portal-tutorials-and-templates/tutorials/static-content-module/index.html  
+https://vmiis.github.io/business-portal-tutorials-and-templates/tutorials/data-field/index.html  

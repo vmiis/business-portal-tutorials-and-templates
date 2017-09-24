@@ -24,6 +24,26 @@
 		{
 			"url":"/modules/dynamic/tutorial-002/checkbox.html",
 			"table_id":"20008498"
+		},
+		"color":
+		{
+			"url":"/modules/dynamic/tutorial-002/color.html",
+			"table_id":"20008493"
+		},
+		"date":
+		{
+			"url":"/modules/dynamic/tutorial-002/date.html",
+			"table_id":"20008491"
+		},
+		"file":
+		{
+			"url":"/modules/dynamic/tutorial-002/file.html",
+			"table_id":"20008500"
+		},
+		"image":
+		{
+			"url":"/modules/dynamic/tutorial-002/image.html",
+			"table_id":"20008501"
 		}
 	}
 }
