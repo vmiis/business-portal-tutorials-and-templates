@@ -1,0 +1,49 @@
+<section>
+      VmInclude:__PARTS__/grid/grid.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+		_fields="_Form,Volunteer_ID|vm_id1,Initials|S3,DOB,Sex,ScreeningNumber";
+        _fields+=",Submit Date|DateTime,Submitted by|Author";
+        //-------------------------------------
+        VmInclude:__PARTS__/grid/grid.js
+        VmInclude:__PARTS__/style/ease-in-out.2.js
+        //-------------------------------------
+		$('#new__ID').hide();
+		$('#save__ID').hide();
+        $('#D__ID').on('load',function(){  _set_req(); _request_data();  })
+        $('#D__ID').on('back',function(){  _set_req(); _request_data();  })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+				case 'Sex':
+                    VmInclude:__LIB__/vmiis/Common-Code/grid/field_gender.js
+                    break;
+                case 'DOB':
+                    VmInclude:__LIB__/vmiis/Common-Code/grid/field_dob.js
+                    break;
+            }
+        }
+        //-------------------------------------
+		var sql0="with tb as (select Information,ID,PID,UID,PUID,S1,S3,DateTime,Author,RowNum=row_number() over (order by UID)  from [TABLE-"+_db_pid+"-@S1] where s1='cbtcpap07')";
+		//-------------------------------------
+		_set_req=function(){
+			var sql=sql0+" select Information,ID,PID,UID,PUID,S1,S3,DateTime,Author,RowNum from tb where RowNum between @I6 and @I7";
+            var sql_n=sql0+" select count(ID) from tb";
+            _req={cmd:'query_records',db_pid:_db_pid,sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+        }
+        //-------------------------------------
+		var _set_req_export=function(){
+			var sql=sql0+" select Information,ID,PID,UID,PUID,DateTime,Author,RowNum from tb";
+            _set_from_to();
+            if(_from!='0' && _to!='0') sql+=" where RowNum between @I6 and @I7";
+            _req={cmd:'query_records',sql:sql,i6:_from,i7:_to}
+        }
+        //-----------------------------------------------
+	}
+</script>
+<style>
+    VmInclude:__PARTS__/grid/grid.css
+	VmInclude:__PARTS__/style/ease-in-out.2.css
+</style>
