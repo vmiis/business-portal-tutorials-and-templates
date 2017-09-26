@@ -1,0 +1,162 @@
+{
+	"name":"Clinic Registration Management",
+	"url":"/modules/dynamic/panel.html",
+	"parameters":{
+		"sql_participant" : "@('First_Name')+' '+@('Last_Name')",
+		"child_configuration_url":"/configurations/patient-child.json"
+	},
+	"modules":
+	[
+		{
+		   "module_id" : "participant_login_setup",
+		   "table_id":"20011178",
+		   "url" : "/modules/dynamic/clinic-registration-management/patient-login-setup.html"
+		}
+	],
+	"panel":
+	{
+		"columns":
+		[
+			{
+				"sections":
+				[
+					{
+						"name":"Patients",
+						"modules":
+						[
+							{
+								"module_id":"registration",
+								"name":"Patients",
+								"table_id":"20011174",
+								"url":"/modules/dynamic/clinic-registration-management/patient.html",
+								"counting":"1"
+							}
+						]
+					}
+					,{
+						"name":"Questionnaire Notes",
+						"modules":
+						[
+							{
+								"module_id":"task_notes",
+								"name":"Notes",
+								"table_id":"20011181",
+								"url":"/modules/dynamic/clinic-registration-management/task-notes.html",
+								"counting":"1"
+							}
+						]
+					}
+				]
+			}
+			,{
+				"sections":
+				[
+					{
+						"name":"Section 1",
+						"modules":
+						[
+							{
+								"module_id":"m_000",
+								"name":"Personal Details",
+								"table_id":"20011175",
+								"url":"/modules/dynamic/clinic-registration-management/task/personal.html",
+								"counting":"1",
+								"quest":"1",
+								"form_module":"m_000_form"
+							}
+							,{
+								"module_id":"m_000_form",
+								"table_id":"20011175",
+								"url":"/modules/dynamic/clinic-registration-management/task/personal.form.html"
+							}
+							,{
+								"module_id":"m_001",
+								"name":"Medicare and Referrals",
+								"table_id":"20011175",
+								"url":"/modules/dynamic/clinic-registration-management/task/medicare_referrals.html",
+								"counting":"1",
+								"quest":"1",
+								"form_module":"m_001_form"
+							}
+							,{
+								"module_id":"m_001_form",
+								"table_id":"20011175",
+								"url":"/modules/dynamic/clinic-registration-management/task/medicare_referrals.form.html"
+							}
+							,{
+								"module_id":"m_002",
+								"name":"Short Sleep History",
+								"table_id":"20011176",
+								"url":"/modules/dynamic/clinic-registration-management/task/short_sleep_history.html",
+								"counting":"1",
+								"quest":"1",
+								"form_module":"m_002_form"
+							}
+							,{
+								"module_id":"m_002_form",
+								"table_id":"20011176",
+								"url":"/modules/dynamic/clinic-registration-management/task/short_sleep_history.form.html"
+							}
+							,{
+								"module_id":"m_003",
+								"name":"Health History",
+								"table_id":"20011190",
+								"url":"/modules/dynamic/clinic-registration-management/task/health_history.html",
+								"counting":"1",
+								"quest":"1",
+								"form_module":"m_003_form"
+							}
+							,{
+								"module_id":"m_003_form",
+								"table_id":"20011190",
+								"url":"/modules/dynamic/clinic-registration-management/task/health_history.form.html"
+							}
+							,{
+								"module_id":"m_004",
+								"name":"Sleep History",
+								"table_id":"20011190",
+								"url":"/modules/dynamic/clinic-registration-management/task/sleep_history.html",
+								"counting":"1",
+								"quest":"1",
+								"form_module":"m_004_form"
+							}
+							,{
+								"module_id":"m_004_form",
+								"table_id":"20011190",
+								"url":"/modules/dynamic/clinic-registration-management/task/sleep_history.form.html"
+							}
+							,{
+								"module_id":"m_005",
+								"name":"Additional Questions",
+								"table_id":"20011190",
+								"url":"/modules/dynamic/clinic-registration-management/task/additional_questions.html",
+								"counting":"1",
+								"quest":"1",
+								"form_module":"m_005_form"
+							}
+							,{
+								"module_id":"m_005_form",
+								"table_id":"20011190",
+								"url":"/modules/dynamic/clinic-registration-management/task/additional_questions.form.html"
+							}
+							,{
+								"module_id":"m_006",
+								"name":"Epworth Sleepiness Scale",
+								"table_id":"20011190",
+								"url":"/modules/dynamic/clinic-registration-management/task/epworth_sleepiness_scale.html",
+								"counting":"1",
+								"quest":"1",
+								"form_module":"m_006_form"
+							}
+							,{
+								"module_id":"m_006_form",
+								"table_id":"20011190",
+								"url":"/modules/dynamic/clinic-registration-management/task/epworth_sleepiness_scale.form.html"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

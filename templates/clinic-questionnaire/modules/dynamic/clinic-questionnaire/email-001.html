@@ -1,0 +1,61 @@
+<section>
+    <div id=toolbar__ID>
+          <a id=back__ID>Back</a><span class=tab__ID></span>Email
+    </div>
+    <div style='padding:30px'>
+        <br><br>
+        <div id=contents__ID>
+            Dear <span id=patient__ID></span>,<br><br>
+            ........................................<br>
+			........................................<br>
+			Website: https://aaa.com<br>
+			Login ID: <span id=Login_ID__ID></span><br>
+			Password: <span id=Password__ID></span><br>
+			........................................<br>
+			........................................<br>
+            <br>
+            <br>
+            <br><br>
+            <br>Best Regards,
+            <br>Manager
+        </div>
+        <br><br>
+        <input type=button id=send__ID value=Send />
+    </div>
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__PARTS__/toolbar/back.js
+        //-------------------------------------
+		var _ids=$vm.vm['__ID'].op.sys.config.module_ids;
+		var pid=$vm.module_list[_ids.visit].table_id
+		var record=$vm.vm['__ID'].op.record;
+        //-------------------------------------
+        $('#D__ID').on('load',function(){
+            $('#patient__ID').text(record.First_Name+' '+record.Last_Name);
+			$('#Login_ID__ID').text(record.UID+'-'+pid);
+			$('#Password__ID').text(record.Password);
+        })
+        //-------------------------------------
+        $('#send__ID').on('click',function(){
+     	   	var From_Address="noresponse@wappsystem.org.au";
+     		var From_Name="Database Administrator";
+     		var To=record.Email;
+            if(To.length<5){
+                alert('No email address.')
+                return;
+            }
+     		var Title="Online Questionnaire";
+     		var Body=$('#contents__ID').html();
+            //if($vm.user=='guest'){ alert('The alert email (to: '+To+') has been sent out'); return;}
+			$VmAPI.request({data:{cmd:'send_email',From_Address:From_Address,From_Name:From_Name,To:To,Title:Title,Body:Body},callback:function(res){
+                alert('The alert email (to: '+record.Email+') has been sent out');
+            }})
+        });
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__PARTS__/style/default.css
+</style>

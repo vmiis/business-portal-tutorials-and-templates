@@ -1,0 +1,64 @@
+{
+	"url":"/modules/dynamic/panel.html",
+	"parameters":{
+		"sql_participant" : "@('First_Name')+' '+@('Last_Name')"
+	},
+	"modules":
+	[
+		{
+			"module_id":"registration",
+			"table_id":"20011174"
+		},
+		{
+			"module_id":"task_notes",
+			"table_id":"20011181"
+		}
+	],
+	"panel":
+	{
+		"columns":
+		[
+			{
+				"sections" :
+				[
+					{
+						"name":"Section 1",
+						"modules":
+						[
+							{
+								"module_id":"m_001",
+								"name":"Medicare and Referrals",
+								"table_id":"20011175",
+								"url":"/modules/dynamic/clinic-registration-management/task/medicare_referrals.html",
+								"counting":"1",
+								"child":"1",
+								"single_record":"1",
+								"form_module":"m_001_form"
+							}
+							,{
+								"module_id":"m_001_form",
+								"table_id":"20011175",
+								"url":"/modules/dynamic/clinic-registration-management/task/medicare_referrals.form.html"
+							}
+							,{
+								"module_id":"m_002",
+								"name":"Patient Health History",
+								"table_id":"20011176",
+								"url":"/modules/dynamic/clinic-registration-management/task/patient_health_history.html",
+								"counting":"1",
+								"child":"1",
+								"single_record":"1",
+								"form_module":"m_002_form"
+							}
+							,{
+								"module_id":"m_002_form",
+								"table_id":"20011176",
+								"url":"/modules/dynamic/clinic-registration-management/task/patient_health_history.form.html"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

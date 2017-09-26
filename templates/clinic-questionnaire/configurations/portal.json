@@ -1,0 +1,64 @@
+{
+	"name":"Clinic Questionnaire",
+	"url":"/modules/dynamic/panel.html",
+	"parameters" :
+	{
+	},
+	"modules":[
+		{
+			"module_id":"email_001",
+			"url":"/modules/dynamic/clinic-questionnaire/email-001.html"
+		},
+		{
+			"module_id":"report",
+			"url":"/modules/dynamic/clinic-questionnaire/report.html"
+		}
+	],
+	"panel" :
+	{
+		"columns":
+		[
+			{
+				"sections":
+				[
+					{
+						"name":"Visit",
+						"modules":
+						[
+							{
+								"module_id":"visit",
+								"name":"Visit Setup",
+								"table_id":"20011195",
+								"url":"/modules/dynamic/clinic-questionnaire/visit.html"
+							}
+						]
+					},
+					{
+						"name":"Setup",
+						"modules":
+						[
+							{
+								"module_id":"physician",
+								"name":"Physician",
+								"table_id":"20011196",
+								"url":"/modules/dynamic/clinic-questionnaire/physician.html"
+							}
+							,{
+								"module_id":"area",
+								"name":"Area",
+								"table_id":"20011197",
+								"url":"/modules/dynamic/clinic-questionnaire/area.html"
+							}
+							,{
+								"module_id":"visit_type",
+								"name":"Visit Type",
+								"table_id":"20011198",
+								"url":"/modules/dynamic/clinic-questionnaire/visit-type.html"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

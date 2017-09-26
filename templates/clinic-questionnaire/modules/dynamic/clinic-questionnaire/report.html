@@ -1,0 +1,24 @@
+<section>
+    <div id=toolbar__ID>
+          <a id=back__ID>Back</a><span class=tab__ID></span>Report
+    </div>
+    <div style='padding:30px'>
+        <div id=contents__ID></div>
+    </div>
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__PARTS__/toolbar/back.js
+        //-------------------------------------
+		var record=$vm.vm['__ID'].op.record;
+        //-------------------------------------
+        $('#D__ID').on('load',function(){
+			$('#contents__ID').html('Report '+record.UID+' '+record.First_Name+' '+record.Last_Name);
+        })
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__PARTS__/style/default.css
+</style>
