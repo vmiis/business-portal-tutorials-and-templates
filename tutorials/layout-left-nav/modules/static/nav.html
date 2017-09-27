@@ -1,0 +1,77 @@
+<div id=small__ID class='w3-hide-large'>
+	aaa
+</div>
+<div id=large__ID class='w3-hide-small w3-hide-medium'>
+	<a id=back__ID class="btn"><i class="fa fa-arrow-left"></i> Back</a>
+	<br>
+	<div id=left_large__ID class="w3-sidebar w3-bar-block">
+		<a onclick="$vm.nav_click_process('module_a','content_container__ID')" class="w3-bar-item w3-button">Module A</a>
+		<a onclick="$vm.nav_click_process('module_b','content_container__ID')" class="w3-bar-item w3-button">Module B</a>
+	</div>
+</div>
+
+<div id=content_container__ID></div>
+
+<script>
+	function F__ID(){
+		$('#back__ID').on('click',function(){ $vm.back({div:'__ID'}); });
+		$('#large__ID').css('top',$vm.header_height+'px')
+		$('#content_container__ID').css('top',$vm.header_height);
+		$('#content_container__ID').css('height',$vm.min_height);
+		var init=1;
+		$('#D__ID').on('load',function(){
+			if(init==1){
+				init=0;
+				$vm.nav_click_process('module_a','content_container__ID');
+			}
+		})
+	}
+</script>
+<style>
+	#back__ID{
+		/*position:fixed;*/
+		width:80px;
+		color:#fff;
+	}
+	#content_container__ID{
+		position:fixed;
+		left:120px;
+		right:0px;
+		/*border: 1px solid red;*/
+	}
+	#left_large__ID{
+		color:#fff;
+		width:120px;
+		background-color:#4D5764;
+	}
+	#small__ID{
+		height:20px;
+		width:100%;
+		background-color:#4D5764;
+	}
+	#large__ID{
+		background-color:#4D5764;
+		position:fixed;
+		width:120px;
+	}
+	#left_large__ID a{
+		padding: 0px 16px;
+	}
+	#D__ID{
+		height:100%;
+		overflow: auto;
+		padding-top:30px;
+		background: rgba(255, 255, 255, 1);
+	}
+	#D__ID img{
+		margin-bottom:10px;
+	}
+	#D__ID a{
+		cursor:pointer;
+	}
+	@media screen and (max-width:768px){
+		#content_container__ID{
+			left:0px;
+		}
+	}
+</style>

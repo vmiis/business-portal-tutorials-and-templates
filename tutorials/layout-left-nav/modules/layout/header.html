@@ -1,0 +1,88 @@
+<div header>
+	<div id=header__ID top-navigation class="w3-top">
+		<div id=small__ID class='w3-hide-large'><a onclick="$vm.nav_click_process('home')"><b>Business Portal</b></a></div>
+		<div id=large__ID class='w3-hide-small w3-hide-medium'><a onclick="$vm.nav_click_process('home')"><b>Business Portal</b></a></div>
+
+		<a id=small_btn__ID href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+
+		<div id=topbar__ID class="w3-right w3-hide-small w3-hide-medium">
+			<a onclick="$vm.nav_click_process('home')" class="w3-bar-item w3-button"><i class="fa fa-home"></i> Home</a>
+			<a onclick="$vm.nav_click_process('portal')" class="w3-bar-item w3-button"><i class="fa fa-th"></i> Portal</a>
+			<a name=signinout onclick="$vm.nav_click_process('vm_signinout')" class="w3-bar-item w3-button"></a>
+		</div>
+	</div>
+	<div id="sidebar__ID" side-navigation class="w3-sidebar w3-bar-block w3-black w3-card-2 w3-animate-left w3-hide-large">
+		<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+		<a onclick="$vm.nav_click_process('home');w3_close()" class="w3-bar-item w3-button"><i class="fa fa-home"></i> Home</a>
+		<a onclick="$vm.nav_click_process('portal');w3_close()" class="w3-bar-item w3-button"><i class="fa fa-th"></i> Portal</a>
+		<a name=signinout onclick="$vm.nav_click_process('vm_signinout');w3_close()" class="w3-bar-item w3-button"></a>
+	</div>
+	<script navigation-processing>
+		//------------------------------------
+		setTimeout(function (){
+			var header_height=$('#header__ID').outerHeight();
+			$('#sidebar__ID').css({'margin-top':header_height+'px'});
+		},1000);
+		//------------------------------------
+		var sidebar = document.getElementById("sidebar__ID");
+		function w3_open() {
+			if (sidebar.style.display === 'block') sidebar.style.display = 'none';
+			else 								   sidebar.style.display = 'block';
+		}
+		function w3_close() {
+			sidebar.style.display = "none";
+		}
+		//-----------------------------------------
+		if($vm.user=='guest'){
+			$('a[name=signinout]').html('<i class="fa fa-user"></i> Sign In')
+			$('#username__ID').text('');
+		}
+		else{
+			$('a[name=signinout]').html('<i class="fa fa-user"></i> Sign Out')
+			$('#username__ID').text('Signed in as '+ $vm.user);
+		}
+		//---------------------------------------------
+	</script>
+	<style>
+		#header__ID{
+			background: rgba(60,60,60,0.6);
+		}
+		#header__ID a{
+		  	cursor:pointer;
+		}
+		#large__ID{
+			font: 180% Arial;
+			color:#fff;
+			display: inline-block;
+			margin: 20px 0 5px 10px;
+			padding:3px 0 0 20px;
+		}
+		#small__ID{
+			font: 180% Arial;
+			color:#fff;
+			display: inline-block;
+			margin: 10px 0 5px 10px;
+			padding:3px 0 0 20px;
+		}
+		#large__ID a:hover,#small__ID a:hover{
+			color:#fff;
+			text-decoration:none;
+		}
+		#small_btn__ID{
+			color:#fff;
+			font-size:26px;
+		}
+		#topbar__ID{
+			font-family: Helvetica,Arial,sans-serif;
+			color:#fff;
+			padding-top:35px;
+			padding-right:250px;
+		}
+		#sidebar__ID{
+			display:none;
+			width:auto;
+		}
+		@media screen and (max-width:768px){
+		}
+	</style>
+</div>
