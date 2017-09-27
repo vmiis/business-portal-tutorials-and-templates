@@ -6,6 +6,7 @@
 		<meta name='viewport' content='width=device-width, initial-scale=1'>
 		<meta name="description" content="business portal,business management,single-page application,online database">
 		<meta name="author" content="Zhiming Zhou, zzm.vmiis@gmail.com">
+		<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"></script>
 	</head>
 	<body>
 		<div style='background:#ecf0f1;font-size:28px;padding:10px'>
@@ -139,4 +140,20 @@
 			font-weight: bold;
 		}
 	</style>
+	<script>
+		$(document).ready(function(){
+			var url='version.html?_='+new Date().getTime().toString();
+			console.log('loading '+url);
+			$.get(url,function(verNew){
+				verNew=verNew.trim();
+				var verOld=localStorage.getItem('tutotrial_and_template_index_version.html');
+				localStorage.setItem('tutotrial_and_template_index_version.html',verNew)
+				console.log(verOld+'-'+verNew);
+				if(verOld!=verNew){
+					console.log('refresh');
+					window.location.reload(true);
+				}
+			});
+		});
+	</script>
 </html>
